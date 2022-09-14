@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  div(class="wrapper")
+    div(class="logo")
+      img(src="images/njcdd.ico" alt="NJCDD")
+    div(class="text-center mt-4 name")
+      | Forgot your NJCDD password?
+    div
+      hr
+      | That's Ok, just enter your email addess and we will send instructions
+      | so you can set a new password.
+    form(class="p-3 mt-3" action="/")
+      div(class="form-field d-flex align-items-center")
+        span(class="far fa-user")
+        input(type="text" name="email" id="email" placeholder="Email Address" autofocus="yes" required="yes")
+      button(class="btn mt-3") Send instructions

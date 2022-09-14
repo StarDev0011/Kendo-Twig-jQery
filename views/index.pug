@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div(class="wrapper")
+    div(class="logo")
+      img(src="images/njcdd.ico" alt="NJCDD")
+    div(class="text-center mt-4 name")
+      | NJCDD Database
+    form(class="p-3 mt-3" action="/login" method="POST")
+      div(class="form-field d-flex align-items-center")
+        i(class="far fa-user trailing")
+        input(type="email" name="email" id="email" placeholder="Email Address" autofocus="yes" required="yes", maxlength="64")
+      div(class="form-field d-flex align-items-center")
+        span(class="far fa-key")
+          input(type="password" name="pwd" id="pwd" placeholder="Password" required="yes" maxlength="18")
+      button(class="btn mt-3") Login
+      hr
+    div(class="text-center fs-3")
+      a(href="/forgot")
+        button(class="btn mt-3") I forgot my password
+      a(href="/register")
+        button(class="btn mt-3") I want to Register

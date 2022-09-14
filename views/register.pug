@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  div(class="wrapper")
+    div(class="logo")
+      img(src="images/njcdd.ico" alt="NJCDD")
+    div(class="text-center mt-4 name")
+      | Register for NJCDD Communications
+    div
+      hr
+    form(class="p-3 mt-3" action="/")
+      div(class="form-field d-flex align-items-center")
+        span(class="far fa-user")
+        input(type="text" name="givenName" id="givenName" placeholder="First Name" autofocus="yes" required="yes")
+      div(class="form-field d-flex align-items-center")
+        span(class="far fa-user")
+        input(type="text" name="familyName" id="familyName" placeholder="Last Name" required="yes")
+      div(class="form-field d-flex align-items-center")
+        span(class="far fa-user")
+        input(type="text" name="email" id="email" placeholder="Email Address" required="yes")
+      button(class="btn mt-3") Send instructions
+      hr
+      p
+        | We will send separate instructions to set your password
