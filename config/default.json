@@ -1,0 +1,12 @@
+{
+  "app": {
+    "port": 12000
+  },
+  "ldap": {
+    "url": "ldap://ldap.aces.local:1389",
+    "baseDn": "dc=aces,dc=anthony-sw,dc=cloud"
+  },
+  "redis": {
+    "url": "redis://:adminpassword@redis.aces.local:6379"
+  }
+}

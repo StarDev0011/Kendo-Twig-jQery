@@ -1,8 +1,9 @@
 doctype html
 
-- var isAdmin;
+- var isManager;
 - var isOps;
-- var name;
+- var displayName;
+- var message;
 
 html
   head
@@ -20,27 +21,48 @@ html
   body
     block header
       nav(class="navbar navbar-expand-lg navbar-light bg-light")
-        a(href="/")
-          img(class="navbar-brand navbar-img" src="images/njcdd.png" alt="NJCDD")
-        button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
-          span(class="navbar-toggler-icon")
-        div(class="collapse navbar-collapse" id="navbarSupportedContent")
-          ul(class="navbar-nav mr-auto")
-            li(class="nav-item")
-              a(class=(isAdmin === true ? 'nav-link visible' : 'nav-link invisible'), href="#") Admin
-            li(class="nav-item")
-              a(class=(isOps === true ? 'nav-link visible' : 'nav-link invisible'), href="#") Members
-            li(class="nav-item")
-              a(class=(typeof name === 'undefined' ? 'nav-link invisible' : 'nav-link visible'), href="/") Log Out
+        div(class="container-fluid")
+          // Toggle button
+          button(class="navbar-togger" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+            i(class="fas fa-bars")
 
-    block content
+          // Collapsible wrapper
+          div(class="collapse navbar-collapse" id="navbarSupportedContent")
+            // Navbar brand
+            a(class="navbar-brand mt-2 mt-lg-0" href=(typeof displayName === 'undefined' ? '/' : '/home'))
+              img(class="navbar-brand navbar-img" src="images/njcdd.png" alt="NJCDD Logo" loading="lazy")
 
-    block script
-      script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js",
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa",
-        crossorigin="anonymous")
-      script(src="https://code.jquery.com/jquery-3.6.1.min.js",
-        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=",
-        crossorigin="anonymous")
-      script(src="javascripts/njcdd.js")
+            // Left elements
+            ul(class="navbar-nav me-auto mb-2 mb-lg-0")
+              li(class="nav-item")
+                a(class=(isManager === true ? 'nav-link visible' : 'invisible') href="#")
+                  | Admin
+              li(class="nav-item")
+                a(class=(isOps === true ? 'nav-link visible' : 'invisible') href="#")
+                  | Member Search
+
+          // Right elements
+          div(class=(typeof displayName === 'undefined' ? 'invisible' : 'dropdown visible'))
+            button(class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-bs-toggle="dropdown" aria-expanded="false")
+              i(class="fas fa-user-alt")
+                | #{displayName}
+            ul(class="dropdown-menu" aria-labelledby="dropdownMenuButton")
+              li
+                a(class="dropdown-item" href="#")
+                  | My Profile
+              li
+                a(class="dropdown-item" href="/logout")
+                  | Log Out
+
+  block content
+
+  block script
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js",
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa",
+      crossorigin="anonymous")
+    script(src="https://code.jquery.com/jquery-3.6.1.min.js",
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=",
+      crossorigin="anonymous")
+    script(src="javascripts/njcdd.js")
