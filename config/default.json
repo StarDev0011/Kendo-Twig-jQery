@@ -4,7 +4,13 @@
   },
   "ldap": {
     "url": "ldap://ldap.docker.njcdd.anthony-sw.cloud:1389",
-    "baseDn": "dc=aces,dc=anthony-sw,dc=cloud"
+    "baseDn": "dc=aces,dc=anthony-sw,dc=cloud",
+    "userDn": "ou=users,dc=aces,dc=anthony-sw,dc=cloud",
+    "groups": {
+      "managers": "cn=managers,ou=users,dc=aces,dc=anthony-sw,dc=cloud",
+      "operators": "cn=operators,ou=users,dc=aces,dc=anthony-sw,dc=cloud",
+      "members": "cn=members,ou=users,dc=aces,dc=anthony-sw,dc=cloud"
+    }
   },
   "redis": {
     "url": "redis://:adminpassword@redis.aces.local:6379"

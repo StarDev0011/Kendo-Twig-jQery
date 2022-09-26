@@ -1,8 +1,10 @@
 const config = require("config");
 const {authenticate} = require('ldap-authentication');
+const ldap = require('ldapjs');
 
 const ldapBaseDn = config.get("ldap.baseDn");
 const ldapUsersDn = `ou=users,${ldapBaseDn}`;
+const server = ldap.createServer();
 
 async function authenticateAccount(username, password) {
   const options = {
@@ -42,6 +44,24 @@ async function authenticateAccount(username, password) {
     console.log(err);
     throw new Error("Either the account name or password was not correct.");
   }
+}
+
+function search() {
+  server.search(ldapUsersDn, function(req, res, next) {
+    let obj = {
+      dn: req.dn.toString(),
+      attributes: {
+        objectclass: ['organization', 'top'],
+        o: 'example'
+      }
+    };
+
+    if(req.filter.matches(obj.attributes))
+      res.send(obj);
+
+    res.end();
+  });
+
 }
 
 module.exports.authenticateAccount = authenticateAccount;

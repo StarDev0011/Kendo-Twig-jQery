@@ -15,8 +15,10 @@
     "express-session": "~1.17",
     "http-errors": "~2.0",
     "ldap-authentication": "~2.3",
+    "ldapjs": "~2.3",
     "mongodb": "^4.10",
     "morgan": "~1.10",
+    "nodemailer": "^6.7.8",
     "npm": "^8.19.2",
     "pug": "~3.0",
     "redis": "~4.3"
