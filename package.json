@@ -1,6 +1,6 @@
 {
   "name": "njcdd.web",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -15,6 +15,7 @@
     "express-session": "~1.17",
     "http-errors": "~2.0",
     "ldap-authentication": "~2.3",
+    "mongodb": "^4.10",
     "morgan": "~1.10",
     "pug": "~3.0",
     "redis": "~4.3"

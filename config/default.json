@@ -8,5 +8,8 @@
   },
   "redis": {
     "url": "redis://:adminpassword@redis.aces.local:6379"
+  },
+  "mongodb": {
+    "url": "mongodb://admin:adminpassword@mongodb.docker.njcdd.anthony-sw.cloud:27017/admin"
   }
 }
