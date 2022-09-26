@@ -1,16 +1,65 @@
-doctype html
+extends layout
 
-- var isManager;
-- var isOps;
-- var displayName;
-- var message;
+block content
+  div(class="container")
+    div(class="row")
+      div(class="col-12 col-lg-7")
+        h2
+          | NJCDD Database Dashboard
+    div(class="row")
+      div(class="col-4")
+        div(class="card border-0 shadow")
+          div(class="card-body")
+            div(class="row d-block d-xl-flex align-items-center")
+              div(class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center")
+                div(class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
+                  i(class="fa-solid fa-database")
+                div(class="d-sm-none")
+                  h2(class="fw-extrabold h5")
+                    | Database Records
+                  h3(class="mb-1")
+                    | 7,234
+              div(class="col-12 col-xl-7 px-xl-0")
+                div(class="d-none d-sm-block")
+                  h2(class="h6 text-gray-400 mb-0")
+                    | Database Records
+                  h3(class="fw-extrabold mb-2")
+                    | 7,234
 
-html
-include ./includes/heads.pug
-body
-include ./includes/banner.pug
-div(class="container-fluid")
-  div(class="row")
-    include ./includes/sidenav.pug
-    // include ./includes/footer.pug
-include ./includes/scripts.pug
+      div(class="col-4")
+        div(class="card border-0 shadow")
+          div(class="card-body")
+            div(class="row d-block d-xl-flex align-items-center")
+              div(class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center")
+                div(class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
+                  i(class="fa-solid fa-envelope-open-text")
+                div(class="d-sm-none")
+                  h2(class="fw-extrabold h5")
+                    | Email Addresses
+                  h3(class="mb-1")
+                    | 7,234
+              div(class="col-12 col-xl-7 px-xl-0")
+                div(class="d-none d-sm-block")
+                  h2(class="h6 text-gray-400 mb-0")
+                    | Email Addresses
+                  h3(class="fw-extrabold mb-2")
+                    | 7,234
+
+      div(class="col-4")
+        div(class="card border-0 shadow")
+          div(class="card-body")
+            div(class="row d-block d-xl-flex align-items-center")
+              div(class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center")
+                div(class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
+                  i(class="fa-solid fa-mobile-screen")
+                div(class="d-sm-none")
+                  h2(class="fw-extrabold h5")
+                    | Phone Numbers
+                  h3(class="mb-1")
+                    | 7,234
+              div(class="col-12 col-xl-7 px-xl-0")
+                div(class="d-none d-sm-block")
+                  h2(class="h6 text-gray-400 mb-0")
+                    | Phone Numbers
+                  h3(class="fw-extrabold mb-2")
+                    | 7,234

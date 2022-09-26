@@ -11,8 +11,8 @@ block content
         i(class="far fa-user trailing")
         input(type="email" name="email" id="email" placeholder="Email Address" autofocus="yes" required="yes", maxlength="64")
       div(class="form-field d-flex align-items-center")
-        span(class="far fa-key")
-          input(type="password" name="pwd" id="pwd" placeholder="Password" required="yes" maxlength="18")
+        i(class="far fa-key trailing")
+        input(type="password" name="pwd" id="pwd" placeholder="Password" required="yes" maxlength="18")
       div(class=(typeof message === 'undefined' ? 'invisible' : 'alert alert-danger visible') role="alert")
         | #{message}
       button(class="btn btn-primary mt-3") Login

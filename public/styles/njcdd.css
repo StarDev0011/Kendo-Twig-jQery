@@ -1,0 +1,34 @@
+body {
+    background-color: #20B2AA;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background-color: #166b65;
+}
+
+.container {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.navbar {
+    height: 70px;
+}
+
+.navbar-img {
+    height: 60px;
+    width: 200px;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        top: 0;
+        position: sticky;
+        z-index: 999;
+    }
+}
