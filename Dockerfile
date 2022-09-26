@@ -2,6 +2,7 @@ FROM node:18.8
 
 WORKDIR /usr/src/app
 ENV PORT=3200
+EXPOSE 3200
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
@@ -12,8 +13,6 @@ RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
 
-# Bundle app source
 COPY . .
 
-EXPOSE 3200
-ENTRYPOINT [ "/usr/local/bin/node ./bin/www" ]
+ENTRYPOINT [ "node", "/usr/src/app/bin/www" ]
