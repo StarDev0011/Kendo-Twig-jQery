@@ -15,4 +15,4 @@ RUN npm install
 
 COPY . .
 
-ENTRYPOINT [ "node", "/usr/src/app/bin/www" ]
+CMD [ "node", "/usr/src/app/bin/www" ]
