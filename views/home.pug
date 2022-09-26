@@ -1,5 +1,16 @@
-extends layout
+doctype html
 
-block content
-  h1
-    | NJCDD Database Dashboard
+- var isManager;
+- var isOps;
+- var displayName;
+- var message;
+
+html
+include ./includes/heads.pug
+body
+include ./includes/banner.pug
+div(class="container-fluid")
+  div(class="row")
+    include ./includes/sidenav.pug
+    // include ./includes/footer.pug
+include ./includes/scripts.pug
