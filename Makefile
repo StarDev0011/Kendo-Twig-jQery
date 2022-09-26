@@ -2,7 +2,6 @@
 # npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
 bump: bumpby = patch
 
-
 bump:
 	@echo bump the version number
 	npm version ${bumpby} -m "Docker Build"
