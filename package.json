@@ -17,6 +17,7 @@
     "ldap-authentication": "~2.3",
     "mongodb": "^4.10",
     "morgan": "~1.10",
+    "npm": "^8.19.2",
     "pug": "~3.0",
     "redis": "~4.3"
   }
