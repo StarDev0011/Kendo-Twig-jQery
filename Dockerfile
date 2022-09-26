@@ -14,5 +14,5 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 12000
-CMD [ "node", "app.js" ]
+EXPOSE 3200
+ENTRYPOINT [ "/usr/local/bin/node", "./bin/www" ]
