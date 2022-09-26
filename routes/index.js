@@ -52,11 +52,56 @@ router.get('/register', function(req, res) {
   }
 });
 
+router.get('/admin', isManager, function(req, res) {
+  const account = req.session.account;
+  res.render('admin', {
+    isManager: account.isManager,
+    isOps: account.isOps,
+    displayName: account.displayName
+  });
+});
+
+router.get('/search', isOps, function(req, res) {
+  const account = req.session.account;
+  res.render('search', {
+    isManager: account.isManager,
+    isOps: account.isOps,
+    displayName: account.displayName
+  });
+});
+
+router.get('/profile', isAuthenticated, function(req, res) {
+  const account = req.session.account;
+  res.render('profile', {
+    isManager: account.isManager,
+    isOps: account.isOps,
+    displayName: account.displayName
+  });
+});
+
 function isAuthenticated(req, res, next) {
   if(req.session.account) {
     next();
   } else {
     res.redirect('/');
+  }
+}
+
+function isManager(req, res, next) {
+  const account = req.session.account;
+  if(account && account.isManager) {
+    next();
+  } else {
+    res.redirect('/home');
+  }
+}
+
+function isOps(req, res, next) {
+  const account = req.session.account;
+  if(account && (account.isOps || account.isManager)) {
+    next();
+  } else {
+    res.redirect('/home');
   }
 }
 
