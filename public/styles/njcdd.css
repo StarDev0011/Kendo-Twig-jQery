@@ -33,3 +33,7 @@ body {
         z-index: 999;
     }
 }
+
+.row {
+    padding-bottom: 5px;
+}
