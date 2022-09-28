@@ -8,10 +8,17 @@ block content
           | NJCDD Database Search
     div(class="row")
       div(class="col-12 col-lg-7")
-        div(id="searchFilter")
-        // ul(id="searchFilterPreview")
-    div(class="row")
-      div(class="col-12 col-lg-7")
+        div(class="configurator")
+          div(class="box-col")
+            button(id="save")
+              | Save Filter
+            button(id="load")
+              | Load Filter
+
+        div(id="filter")
+        br
+        br
+        br
         div(id="searchGrid")
 
 block local_script

@@ -8,7 +8,17 @@ block content
           | Database Administration
     div(class="row")
       div(class="col-12 col-lg-7")
-        dic(id="adminGrid")
+        div(id="adminGrid")
+        div(id="details")
 
 block local_script
   script(src="js/njcdd-admin.js")
+  script(type="text/x-kendo-template" id="template")
+    div(id="details-container")
+      h2
+        | #= givenName # #= familyName #
+      em
+        | #= email #
+      dl
+        dt
+          | Role: #= role #
