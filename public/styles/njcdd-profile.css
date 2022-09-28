@@ -1,0 +1,34 @@
+#tabstrip h2 {
+    font-weight: lighter;
+    font-size: 5em;
+    line-height: 1;
+    padding: 0 0 0 30px;
+    margin: 0;
+}
+
+#tabstrip h2 span {
+    background: none;
+    padding-left: 5px;
+    font-size: .3em;
+    vertical-align: top;
+}
+
+#tabstrip p {
+    margin: 0;
+    padding: 0;
+}
+
+.cards-container {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 500px;
+}
+
+.k-card {
+    height: 100%;
+}
+
+.k-card-title {
+    font-size: small;
+}
