@@ -50,3 +50,21 @@ body {
     margin: 0;
     display: inline;
 }
+
+.k-card-deck {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.k-card {
+    margin: 5%;
+    width: 300px;
+}
+
+.k-card-action > .k-button {
+    width: 100%;
+}
+
+.k-card-body p {
+    font-size: small;
+}

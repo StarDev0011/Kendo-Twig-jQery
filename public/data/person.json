@@ -1,0 +1,771 @@
+[
+  {
+    "familyName": "Hoegel",
+    "givenName": "Jill",
+    "additionalName": null,
+    "honorificPrefix": [
+      "Council Member"
+    ],
+    "honorificSuffix": [],
+    "fullName": null,
+    "birthDate": null,
+    "maritalStatus": null,
+    "gender": null,
+    "pronouns": [],
+    "languages": [],
+    "role": null,
+    "addresses": [
+      {
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "addressType": "primary",
+        "address": null,
+        "address2": null,
+        "city": null,
+        "county": null,
+        "state": null,
+        "postalCode": null,
+        "countryCode": null,
+        "organization": "Disability Rights New Jersey",
+        "title": null,
+        "legislative": {
+          "districts": []
+        }
+      }
+    ],
+    "telephones": [
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "work",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "home",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "mobile",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "fax",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "telephone",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      }
+    ],
+    "emails": [
+      {
+        "address": "jhoegel@drnj.org",
+        "use": "unknown",
+        "notes": null,
+        "validatedDate": null,
+        "invalidatedDate": null,
+        "reasonForInvalidation": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      }
+    ],
+    "subscriptions": [
+      {
+        "publication": "PeopleFirstMagazine",
+        "publicationCode": "P1MAG",
+        "effectiveDate": null,
+        "expiryDate": null,
+        "notes": null
+      },
+      {
+        "publication": "EmailsAndNotification",
+        "publicationCode": "EMAIL",
+        "effectiveDate": null,
+        "expiryDate": null,
+        "notes": null
+      }
+    ],
+    "socialMedia": [
+      {
+        "platform": "website",
+        "address": null,
+        "permissions": []
+      }
+    ],
+    "provenance": {
+      "uploadID": "ZcENcjMcDaoKCGz3J8w4bn.csv",
+      "origin": "20121231",
+      "domain": "test"
+    },
+    "personID": "eqeBUuez34nQXJiY68ZRUj"
+  },
+  {
+    "familyName": "Kinsell",
+    "givenName": "Peggy",
+    "additionalName": null,
+    "honorificPrefix": [],
+    "honorificSuffix": [],
+    "fullName": null,
+    "birthDate": null,
+    "maritalStatus": null,
+    "gender": "None Provided",
+    "pronouns": [],
+    "languages": [],
+    "role": null,
+    "addresses": [
+      {
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "addressType": "primary",
+        "address": null,
+        "address2": null,
+        "city": null,
+        "county": null,
+        "state": null,
+        "postalCode": null,
+        "countryCode": null,
+        "organization": "SPAN",
+        "title": null,
+        "legislative": {
+          "districts": []
+        }
+      }
+    ],
+    "telephones": [
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "work",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "home",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "mobile",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "fax",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "telephone",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      }
+    ],
+    "emails": [
+      {
+        "address": "pegkin54@aol.com",
+        "use": "unknown",
+        "notes": null,
+        "validatedDate": null,
+        "invalidatedDate": null,
+        "reasonForInvalidation": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      }
+    ],
+    "subscriptions": [
+      {
+        "publication": "PeopleFirstMagazine",
+        "publicationCode": "P1MAG",
+        "effectiveDate": null,
+        "expiryDate": null,
+        "notes": null
+      },
+      {
+        "publication": "EmailsAndNotification",
+        "publicationCode": "EMAIL",
+        "effectiveDate": null,
+        "expiryDate": null,
+        "notes": null
+      }
+    ],
+    "socialMedia": [
+      {
+        "platform": "website",
+        "address": null,
+        "permissions": []
+      }
+    ],
+    "provenance": {
+      "uploadID": "ZcENcjMcDaoKCGz3J8w4bn.csv",
+      "origin": "20121231",
+      "domain": "test"
+    },
+    "personID": "Qu2vLZnXo3ZSaycwRSWy2w"
+  },
+  {
+    "familyName": "Byra",
+    "givenName": "Ellie",
+    "additionalName": null,
+    "honorificPrefix": [
+      "Council Member"
+    ],
+    "honorificSuffix": [],
+    "fullName": null,
+    "birthDate": null,
+    "maritalStatus": null,
+    "gender": "None Provided",
+    "pronouns": [],
+    "languages": [],
+    "role": null,
+    "addresses": [
+      {
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "addressType": "primary",
+        "address": null,
+        "address2": null,
+        "city": null,
+        "county": null,
+        "state": null,
+        "postalCode": null,
+        "countryCode": null,
+        "organization": "The NJ Council on Developmental Disabilities",
+        "title": null,
+        "legislative": {
+          "districts": []
+        }
+      }
+    ],
+    "telephones": [
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "work",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": "19087821767",
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "home",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": "19085071363",
+        "numberExtension": null,
+        "phoneType": "mobile",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "fax",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "telephone",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      }
+    ],
+    "emails": [
+      {
+        "address": "elliebyra@comcast.net",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      }
+    ],
+    "subscriptions": [
+      {
+        "publication": "PeopleFirstMagazine",
+        "publicationCode": "P1MAG",
+        "effectiveDate": null,
+        "expiryDate": null,
+        "notes": null
+      },
+      {
+        "publication": "EmailsAndNotification",
+        "publicationCode": "EMAIL",
+        "effectiveDate": null,
+        "expiryDate": null,
+        "notes": null
+      }
+    ],
+    "socialMedia": [
+      {
+        "platform": "website",
+        "address": null,
+        "permissions": []
+      }
+    ],
+    "provenance": {
+      "uploadID": "ZcENcjMcDaoKCGz3J8w4bn.csv",
+      "origin": "20121231",
+      "domain": "test"
+    },
+    "personID": "ZFvnKjjdWCXspCxSuUevt8"
+  },
+  {
+    "familyName": "Testa",
+    "givenName": "William",
+    "additionalName": null,
+    "honorificPrefix": [
+      "Executive Director"
+    ],
+    "honorificSuffix": [],
+    "fullName": null,
+    "birthDate": null,
+    "maritalStatus": null,
+    "gender": null,
+    "pronouns": [],
+    "languages": [],
+    "role": null,
+    "addresses": [
+      {
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "addressType": "primary",
+        "address": null,
+        "address2": null,
+        "city": null,
+        "county": null,
+        "state": null,
+        "postalCode": null,
+        "countryCode": null,
+        "organization": "The Arc - Morris Chapter",
+        "title": null,
+        "legislative": {
+          "districts": []
+        }
+      }
+    ],
+    "telephones": [
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "work",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "home",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "mobile",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "fax",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "telephone",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      }
+    ],
+    "emails": [
+      {
+        "address": "w.testa@arcmorris.org",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      }
+    ],
+    "subscriptions": [
+      {
+        "publication": "PeopleFirstMagazine",
+        "publicationCode": "P1MAG",
+        "effectiveDate": null,
+        "expiryDate": null,
+        "notes": null
+      },
+      {
+        "publication": "EmailsAndNotification",
+        "publicationCode": "EMAIL",
+        "effectiveDate": null,
+        "expiryDate": null,
+        "notes": null
+      }
+    ],
+    "socialMedia": [
+      {
+        "platform": "website",
+        "address": null,
+        "permissions": []
+      }
+    ],
+    "provenance": {
+      "uploadID": "ZcENcjMcDaoKCGz3J8w4bn.csv",
+      "origin": "20121231",
+      "domain": "test"
+    },
+    "personID": "Xnjp99qfPocXpWxHohYEC3"
+  },
+  {
+    "familyName": "Murray",
+    "givenName": "Kimberly",
+    "additionalName": null,
+    "honorificPrefix": [],
+    "honorificSuffix": [],
+    "fullName": null,
+    "birthDate": null,
+    "maritalStatus": null,
+    "gender": "None Provided",
+    "pronouns": [],
+    "languages": [],
+    "role": null,
+    "addresses": [
+      {
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "addressType": "primary",
+        "address": null,
+        "address2": null,
+        "city": null,
+        "county": null,
+        "state": null,
+        "postalCode": null,
+        "countryCode": null,
+        "organization": null,
+        "title": null
+      }
+    ],
+    "telephones": [
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "work",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "home",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "mobile",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "fax",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      },
+      {
+        "number": null,
+        "numberExtension": null,
+        "phoneType": "unknown",
+        "use": "telephone",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      }
+    ],
+    "emails": [
+      {
+        "address": "kimberly.murray@doe.nj.gov",
+        "use": "unknown",
+        "notes": null,
+        "verified": {
+          "status": "unverified",
+          "authority": null,
+          "date": null,
+          "reason": null
+        },
+        "permissions": []
+      }
+    ],
+    "subscriptions": [
+      {
+        "publication": "PeopleFirstMagazine",
+        "publicationCode": "P1MAG",
+        "effectiveDate": null,
+        "expiryDate": null,
+        "notes": null
+      },
+      {
+        "publication": "EmailsAndNotification",
+        "publicationCode": "EMAIL",
+        "effectiveDate": null,
+        "expiryDate": null,
+        "notes": null
+      }
+    ],
+    "socialMedia": [
+      {
+        "platform": "website",
+        "address": null,
+        "permissions": []
+      }
+    ],
+    "provenance": {
+      "uploadID": "ZcENcjMcDaoKCGz3J8w4bn.csv",
+      "origin": "20121231",
+      "domain": "test"
+    },
+    "personID": "dPvUJRx4XWEC3ZJJwowgVK"
+  }
+]

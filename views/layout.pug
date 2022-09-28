@@ -16,9 +16,8 @@ html
     link(rel="stylesheet", href="styles/bootstrap.min.css")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Poppins")
     link(rel="stylesheet", href="styles/volt.css")
-    link(rel="stylesheet", href="styles/fontawesome.min.css")
-    link(rel="stylesheet", href="styles/solid.min.css")
-    link(rel="stylesheet", href="styles/brands.min.css")
+    link(rel="stylesheet", href="styles/fontawesome/fontawesome.min.css")
+    link(rel="stylesheet", href="styles/fontawesome/sharp-solid.min.css")
     link(rel="stylesheet", href="styles/kendo.common.min.css" )
     link(rel="stylesheet", href="styles/kendo.default.min.css" )
     link(rel="stylesheet", href="styles/kendo.default.mobile.min.css" )
@@ -38,36 +37,36 @@ html
               a(href=(displayName ? '/home' : '/'))
                 img(src="images/njcdd.png" alt="NJCDD Logo")
             div(class="col-6 collapse-close")
-              i(class="fas fa-times" data-toggle="collapse" role="button"
+              i(class="fas fa-times fa-2xl" data-toggle="collapse" role="button"
                 data-target="#navbar-default-primary" aria-controls="navbar-default-primary"
                 aria-expanded="false" aria-label="Toggle navigation")
         ul(class="navbar-nav navbar-nav-hover align-items-lg-center nav-pills rounded nav-fill flex-column flex-md-row")
           li(class="nav-item")
             a(href=(displayName ? '/home' : '/') class="nav-link")
-              i(class="fa-solid fa-house")
+              i(class="fa-sharp fa-solid fa-house")
               | Home
           li(class=(isOps === true ? 'nav-item' : 'invisible'))
             a(href="/search" class="nav-link")
-              i(class="fa-solid fa-magnifying-glass")
+              i(class="fa-sharp fa-solid fa-magnifying-glass")
               | Search
           li(class=(isManager === true ? 'nav-item' : 'invisible'))
             a(href="/admin" class="nav-link")
-              i(class="fa-solid fa-list-check")
+              i(class="fa-sharp fa-list-check")
               | Admin
         ul(class="nav navbar-nav nav-pills rounded ms-auto mb-2 mb-lg-0")
           li(class=(displayName ? 'nav-item dropdown' : 'invisible'))
             a(class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="/profile"
               role="button" aria-expanded="false" id="dropdownMenuButton1")
-              i(class="fa-regular fa-circle-user")
+              i(class="fa-sharp fa-solid fa-circle-user")
               |  Hello #{displayName}
             ul(class="dropdown-menu" aria-labelledby="dropdownMenuButton1")
               li
                 a(class="dropdown-item" href="/profile")
-                  i(class="fa-regular fa-id-card")
+                  i(class="fa-sharp fa-solid fa-id-card")
                   |  My Profile
               li
                 a(class="dropdown-item" href="/logout")
-                  i(class="fa-solid fa-arrow-right-from-bracket")
+                  i(class="fa-sharp fa-solid fa-arrow-right-from-bracket")
                   |  Log Out
       div(class="d-flex align-items-center")
         button(class="navbar-toggler ms-2" type="button" data-toggle="collapse"
