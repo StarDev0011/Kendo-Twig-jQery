@@ -97,7 +97,7 @@ $(document).ready(function() {
             {
               field: "UNSUB",
               editor: "CheckBox",
-              label: "Unsubscibe from All",
+              label: "Unsubscribe from All",
               colSpan: 1,
               change: basicUnsubscribeAll
             }
