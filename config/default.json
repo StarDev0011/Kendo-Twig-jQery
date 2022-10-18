@@ -3,19 +3,23 @@
     "port": 3200
   },
   "ldap": {
-    "url": "ldap://ldap.docker.njcdd.anthony-sw.cloud:1389",
-    "baseDn": "dc=aces,dc=anthony-sw,dc=cloud",
-    "userDn": "ou=users,dc=aces,dc=anthony-sw,dc=cloud",
+    "url": "ldap://ldap.account.njcdd.org:1389",
+    "baseDn": "dc=account,dc=njcdd,dc=org",
+    "userDn": "ou=users,dc=account,dc=njcdd,dc=org",
     "groups": {
-      "managers": "cn=managers,ou=users,dc=aces,dc=anthony-sw,dc=cloud",
-      "operators": "cn=operators,ou=users,dc=aces,dc=anthony-sw,dc=cloud",
-      "members": "cn=members,ou=users,dc=aces,dc=anthony-sw,dc=cloud"
+      "managers": "cn=managers,ou=users,dc=account,dc=njcdd,dc=org",
+      "operators": "cn=operators,ou=users,dc=account,dc=njcdd,dc=org",
+      "members": "cn=members,ou=users,dc=account,dc=njcdd,dc=org"
     }
   },
   "redis": {
-    "url": "redis://:adminpassword@redis.aces.local:6379"
+    "url": "redis://:adminpassword@redis.account.njcdd.org:6379/0"
   },
   "mongodb": {
-    "url": "mongodb://admin:adminpassword@mongodb.docker.njcdd.anthony-sw.cloud:27017/admin"
+    "url": "mongodb://admin:adminpassword@mongodb.account.njcdd.org:27017/admin",
+    "database": "njcdd",
+    "collection": {
+      "contact": "contact"
+    }
   }
 }
