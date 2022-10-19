@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const ldapController = require('../controller/ldap');
+const mongodbController = require('../controller/mongodb');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -10,11 +11,19 @@ router.get('/', function(req, res) {
 
 router.get('/home', isAuthenticated, function(req, res) {
   const account = req.session.account;
-  res.render('home', {
-    isManager: account.isManager,
-    isOps: account.isOps,
-    displayName: account.displayName
-  });
+  const promise = mongodbController.contactSummary();
+  promise
+    .then((summary) => {
+      res.render('home', {
+        isManager: account.isManager,
+        isOps: account.isOps,
+        displayName: account.displayName,
+        summary: summary
+      });
+    })
+    .catch((error) => {
+      res.render('index', {message: error});
+    });
 });
 
 router.post('/home', async function(req, res) {
