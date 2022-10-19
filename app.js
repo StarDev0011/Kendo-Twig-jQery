@@ -14,8 +14,6 @@ let redisClient = createClient({
                                });
 redisClient.connect().catch(console.error);
 
-const indexRouter = require('./routes/index');
-
 const app = express();
 
 // view engine setup
@@ -44,13 +42,12 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/', indexRouter);
-
+app.use('/', require('./routes/index'));
+app.use('/api/contact', require('./routes/contact'));
 
 app.use('/home', function(err, req, res) {
   res.redirect('/');
 });
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,4 +1,4 @@
-import {MongoClient} from "mongodb";
+const MongoClient = require("mongodb").MongoClient;
 
 const config = require("config"),
   uri = config.get("mongodb.url"),
@@ -30,7 +30,8 @@ async function contactSummary() {
   }
 }
 
-async function contactSearch(key, value) {
+async function contactSearch(query) {
+  console.log(query);
   let client = new MongoClient(uri);
 
   try {
@@ -38,22 +39,21 @@ async function contactSearch(key, value) {
     const db = client.db(dbName),
       collection = db.collection(contact),
       options = {
+        limit: 1000,
         projection: {
           "_id": 1,
-          "email": 1,
           "familyName": 1,
           "givenName": 1,
-          "city": 1,
-          "county": 1,
-          "state": 1,
-          "postalCode": 1
+          "emails": 1,
+          "addresses": 1
+          // "addresses.county": 1,
+          // "addresses.state": 1,
+          // "addresses.postalCode": 1
         }
       };
 
-    let query = {key: value};
     let cursor = collection.find(query, options);
-    let result = [];
-    await cursor.forEach(result.push);
+    let result = await cursor.toArray();
 
     console.log(`Found ${result.length} documents`);
     return result;

@@ -1,8 +1,6 @@
-const express = require('express');
-const router = express.Router();
-
-const ldapController = require('../controller/ldap');
-const mongodbController = require('../controller/mongodb');
+const router = require('express').Router(),
+  ldapController = require('../controller/ldap'),
+  mongodbController = require('../controller/mongodb');
 
 /* GET home page. */
 router.get('/', function(req, res) {
