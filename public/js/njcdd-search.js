@@ -1,50 +1,10 @@
-let searchData = [
-  {
-    doc_id: "123125sdffgq345fqe",
-    email: "gary.brown@njcdd.org",
-    familyName: "Brown",
-    givenName: "Gary",
-    city: "Trenton",
-    county: "Mercer",
-    state: "NJ",
-    postalCode: "08625"
-  },
-  {
-    doc_id: "123125sdffgq345fqe",
-    email: "maria.ali@njcdd.org",
-    familyName: "Ali",
-    givenName: "Maria",
-    city: "Trenton",
-    county: "Mercer",
-    state: "NJ",
-    postalCode: "08625"
-  },
-  {
-    doc_id: "123125sdffgq345fqe",
-    email: "kyoko.coco@njcdd.org",
-    familyName: "Coco",
-    givenName: "Kyoko",
-    city: "Trenton",
-    county: "Mercer",
-    state: "NJ",
-    postalCode: "08625"
-  },
-  {
-    doc_id: "123125sdffgq345fqe",
-    email: "mercedes.witowsky@njcdd.org",
-    familyName: "Witowsky",
-    givenName: "Mercedes",
-    city: "Trenton",
-    county: "Mercer",
-    state: "NJ",
-    postalCode: "08625"
-  }
-];
-
 $(document).ready(function() {
   let dataSource = new kendo.data.DataSource(
     {
-      data: searchData,
+      data: "odata",
+      transport: {
+        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders"
+      },
       pageSize: 20,
       schema: {
         model: {
@@ -56,7 +16,8 @@ $(document).ready(function() {
             city: {type: "string", label: "City"},
             county: {type: "string", label: "County"},
             state: {type: "string", label: "State"},
-            postalCode: {type: "string", label: "Zip Code"}
+            postalCode: {type: "string", label: "Zip Code"},
+            _id: {type: "string", label: "ID", hidden: true}
           }
         }
       }
