@@ -16,7 +16,7 @@ async function contactSummary() {
     addresses: await collection.countDocuments({addresses: {$type: "array", $ne: []}}),
     validAddresses: await collection.countDocuments({"addresses.verified.status": "verified"}),
     emails: await collection.countDocuments({"emails.address": {$nin: [null, ""]}}),
-    phones: await collection.countDocuments({"telephones.number": {$nin: [null, ""]}})
+    phones: await collection.countDocuments({"telephones.number": {$regex: /^\d{10,11}$/}})
   };
   console.log('Found documents =>', result);
 
