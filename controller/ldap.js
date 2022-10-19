@@ -2,40 +2,38 @@ const config = require("config");
 const {authenticate} = require('ldap-authentication');
 const ldap = require('ldapjs');
 
-const ldapBaseDn = config.get("ldap.baseDn");
-const ldapUsersDn = `ou=users,${ldapBaseDn}`;
+const ldapUserDn = config.get("ldap.userDn");
 const server = ldap.createServer();
 
 async function authenticateAccount(username, password) {
-  const options = {
+  let options = {
     ldapOpts: {
       url: config.get("ldap.url")
     },
-    adminDn: `cn=admin,${ldapBaseDn}`,
-    adminPassword: 'adminpassword',
-    userDn: ldapUsersDn,
-    verifyUserExists: true,
-    userSearchBase: ldapUsersDn,
+    userDn: `cn=${username},${ldapUserDn}`,
+    userPassword: password,
+    userSearchBase: ldapUserDn,
     usernameAttribute: 'cn',
     username: username,
-    userPassword: password,
-    attributes: ['dn', 'sn', 'cn', 'givenName', 'mail', 'displayName'],
-    groupsSearchBase: ldapUsersDn,
+    groupsSearchBase: ldapUserDn,
     groupClass: 'groupOfNames',
-    groupMemberAttribute: 'member'
+    groupMemberAttribute: 'member',
+    attributes: ['dn', 'sn', 'cn', 'givenName', 'mail', 'displayName']
   };
 
   try {
-    const response = await authenticate(options);
+    let user = await authenticate(options);
+    console.log(user);
+
     const result = {
-      dn: response.dn,
-      firstName: response['givenName'],
-      lastName: response['sn'],
-      displayName: response.displayName,
-      account: response['cn'],
-      email: response['mail'],
-      isManager: response.groups.filter(group => group.dn.startsWith("cn=managers")).length > 0,
-      isOps: response.groups.filter(group => group.dn.startsWith("cn=operators")).length > 0
+      dn: user.dn,
+      firstName: user['givenName'],
+      lastName: user['sn'],
+      displayName: user.displayName,
+      account: user['cn'],
+      email: user['mail'],
+      isManager: user.groups.filter(group => group.dn.startsWith("cn=managers")).length > 0,
+      isOps: user.groups.filter(group => group.dn.startsWith("cn=operators")).length > 0
     };
 
     console.log(result);
@@ -47,7 +45,7 @@ async function authenticateAccount(username, password) {
 }
 
 function search() {
-  server.search(ldapUsersDn, function(req, res, next) {
+  server.search(ldapUserDn, function(req, res, next) {
     let obj = {
       dn: req.dn.toString(),
       attributes: {
