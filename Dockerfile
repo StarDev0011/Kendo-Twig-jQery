@@ -3,7 +3,7 @@ FROM node:18.8
 WORKDIR /usr/src/app
 ENV PORT=3200 \
     LDAP_USERNAME=admin \
-    LDAP_PASSWORD=adminpassword
+    LDAP_PASSWORD=adminpassword \
     NODE_ENV=production
 EXPOSE 3200
 
