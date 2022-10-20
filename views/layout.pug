@@ -1,10 +1,12 @@
 doctype html
 
-- var isManager;
-- var isOps;
-- var displayName;
-- var message;
-- var summary;
+-  var product;
+-  var version;
+-  var displayName;
+-  var isOps;
+-  var isManager;
+-  var message;
+-  var content;
 
 html
   head
@@ -24,7 +26,7 @@ html
     link(rel="stylesheet", href="styles/kendo.default.mobile.min.css" )
     link(rel="stylesheet", href="styles/volt.css")
     link(rel="stylesheet", href="styles/njcdd.css")
-    block local_header
+    block local_head
 
   body(class="d-flex flex-column min-vh-100")
   nav(class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-gray-100 navbar-theme-primary mb-4")
@@ -47,11 +49,11 @@ html
             a(href=(displayName ? '/home' : '/') class="nav-link")
               i(class="fa-sharp fa-solid fa-house")
               | Home
-          li(class=(isOps === true ? 'nav-item' : 'invisible'))
+          li(class=(isOps ? 'nav-item' : 'invisible'))
             a(href="/search" class="nav-link")
               i(class="fa-sharp fa-solid fa-magnifying-glass")
               | Search
-          li(class=(isManager === true ? 'nav-item' : 'invisible'))
+          li(class=(isManager ? 'nav-item' : 'invisible'))
             a(href="/admin" class="nav-link")
               i(class="fa-sharp fa-list-check")
               | Admin
@@ -70,6 +72,10 @@ html
                 a(class="dropdown-item" href="/logout")
                   i(class="fa-sharp fa-solid fa-arrow-right-from-bracket")
                   |  Log Out
+              li
+                div
+                  i(class="fa-sharp fa-solid fa-tag")
+                  |  Version #{version}
       div(class="d-flex align-items-center")
         button(class="navbar-toggler ms-2" type="button" data-toggle="collapse"
           data-target="#navbar-default-primary" aria-controls="navbar-default-primary"

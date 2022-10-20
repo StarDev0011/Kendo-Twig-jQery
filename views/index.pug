@@ -1,6 +1,6 @@
 extends layout
 
-block local_header
+block local_head
   link(rel="stylesheet", href="styles/neo.css")
 
 block content
@@ -16,7 +16,7 @@ block content
       div(class="form-field d-flex align-items-center")
         i(class="fa-sharp fa-solid fa-key")
         input(type="password" name="pwd" id="pwd" placeholder="Password" required="yes" maxlength="18")
-      div(class=(typeof message === 'undefined' ? 'invisible' : 'alert alert-danger visible') role="alert")
+      div(class=(message === undefined || message === null ? 'invisible' : 'alert alert-danger visible') role="alert")
         | #{message}
       button(class="btn btn-primary mt-3") Login
     hr

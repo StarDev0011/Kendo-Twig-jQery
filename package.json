@@ -1,5 +1,6 @@
 {
-  "name": "njcdd",
+  "name": "account.njcdd",
+  "description": "NJCDD Account Database",
   "version": "1.0.15",
   "private": true,
   "scripts": {
