@@ -11,7 +11,7 @@ $(document).ready(function() {
           contentType: "application/json",
           dataType: "json",
           type: "POST",
-          url: "http://account.njcdd.org:3200/api/v1/contact/search"
+          url: "/api/v1/contact/search"
         }
       },
       pageSize: 25,
