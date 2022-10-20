@@ -1,3 +1,7 @@
+/*
+ * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ */
+
 const config = require("config");
 const createError = require('http-errors');
 const express = require('express');
@@ -10,7 +14,7 @@ let RedisStore = require("connect-redis")(session);
 const {createClient} = require("redis");
 let redisClient = createClient({
                                  legacyMode: true,
-                                 url: config.get("redis.url")
+                                 url: config.get("redis.host")
                                });
 redisClient.connect().catch(console.error);
 

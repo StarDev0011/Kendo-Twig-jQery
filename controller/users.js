@@ -1,3 +1,7 @@
+/*
+ * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ */
+
 const config = require("config");
 const ldap = require('ldapjs');
 const nodemailer = require('nodemailer');
@@ -7,7 +11,7 @@ async function dbConnect() {
 
     const ldapClient = ldap.createClient(
       {
-        url: config.ldap.url
+        url: config.ldap.host
       });
 
     ldapClient.bind(process.env.LDAP_USERNAME, process.env.LDAP_PASSWORD, function(err) {

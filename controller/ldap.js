@@ -1,3 +1,7 @@
+/*
+ * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ */
+
 const config = require("config");
 const {authenticate} = require('ldap-authentication');
 const ldap = require('ldapjs');
@@ -8,7 +12,7 @@ const server = ldap.createServer();
 async function authenticateAccount(username, password) {
   let options = {
     ldapOpts: {
-      url: config.get("ldap.url")
+      url: config.get("ldap.host")
     },
     userDn: `cn=${username},${ldapUserDn}`,
     userPassword: password,

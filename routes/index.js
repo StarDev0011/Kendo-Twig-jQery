@@ -1,3 +1,7 @@
+/*
+ * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ */
+
 const router = require('express').Router(),
   ldapController = require('../controller/ldap'),
   mongodbController = require('../controller/mongodb'),
@@ -13,7 +17,10 @@ const router = require('express').Router(),
     content: {}
   };
 
-function setVariables({account = null, message = null, content = {}}) {
+function setVariables(x) {
+  const account = x.account === undefined ? null : x.account;
+  const message = x.message === undefined ? null : x.message;
+  const content = x.content === undefined ? {} : x.content;
   let result = Object.assign({}, pageVariables);
 
   if(account) {

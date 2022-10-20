@@ -1,9 +1,10 @@
 {
   "app": {
-    "port": 3200
+    "port": 3200,
+    "host": "http://localhost:3200/api/v1"
   },
   "ldap": {
-    "url": "ldap://ldap.account.njcdd.org:1389",
+    "host": "ldap://ldap.account.njcdd.org:1389",
     "baseDn": "dc=account,dc=njcdd,dc=org",
     "userDn": "ou=users,dc=account,dc=njcdd,dc=org",
     "groups": {
@@ -13,10 +14,10 @@
     }
   },
   "redis": {
-    "url": "redis://:adminpassword@redis.account.njcdd.org:6379/0"
+    "host": "redis://:adminpassword@redis.account.njcdd.org:6379/0"
   },
   "mongodb": {
-    "url": "mongodb://admin:adminpassword@mongodb.account.njcdd.org:27017/admin",
+    "host": "mongodb://admin:adminpassword@mongodb.account.njcdd.org:27017/admin",
     "database": "njcdd",
     "collection": {
       "contact": "contact"

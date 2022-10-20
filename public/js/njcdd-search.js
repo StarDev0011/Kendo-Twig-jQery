@@ -1,5 +1,6 @@
-// noinspection HttpUrlsUsage
-
+/*
+ * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ */
 
 $(document).ready(function() {
   let contactDataSource = new kendo.data.DataSource(
@@ -10,7 +11,7 @@ $(document).ready(function() {
           contentType: "application/json",
           dataType: "json",
           type: "POST",
-          url: "http://localhost:3200/api/v1/contact/search"
+          url: "http://account.njcdd.org:3200/api/v1/contact/search"
         }
       },
       pageSize: 25,

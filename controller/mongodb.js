@@ -1,7 +1,11 @@
+/*
+ * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ */
+
 const MongoClient = require("mongodb").MongoClient;
 
 const config = require("config"),
-  uri = config.get("mongodb.url"),
+  uri = config.get("mongodb.host"),
   dbName = config.get("mongodb.database"),
   contact = config.get("mongodb.collection.contact");
 
