@@ -74,7 +74,7 @@ $(document).ready(function() {
       ]
     });
 
-  let filter = $("#filter").getKendoFilter();
+  let filter = $("#searchFilter").getKendoFilter();
   filter.applyFilter();
 
   $("#save").click(function(e) {
