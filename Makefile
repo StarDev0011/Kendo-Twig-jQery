@@ -7,11 +7,13 @@ bump:
 	npm version ${bumpby} -m "Docker Build"
 	git push --tags origin main
 
-build: bump
-	$(eval $@_build_version := $(shell npm version --json=true | jq ".njcdd" | tr -d '"'))
+rebuild:
+	$(eval $@_build_version := $(shell npm version --json=true | jq ".account_njcdd" | tr -d '"'))
 	@echo Building Docker image for NJCDD Web
 	docker build . --no-cache --pull --progress plain \
 	--tag anthonysw/njcdd-web:$($@_build_version) --tag anthonysw/njcdd-web:latest
+
+build: bump rebuild
 
 publish:
 	$(eval $@_build_version := $(shell npm version --json=true | jq ".njcdd" | tr -d '"'))
