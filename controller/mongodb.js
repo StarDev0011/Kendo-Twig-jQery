@@ -14,15 +14,14 @@ async function contactSummary() {
     const db = client.db(dbName);
     const collection = db.collection(contact);
 
-    const result = {
+    return {
       contacts: await collection.countDocuments({}),
       addresses: await collection.countDocuments({addresses: {$type: "array", $ne: []}}),
       validAddresses: await collection.countDocuments({"addresses.verified.status": "verified"}),
       emails: await collection.countDocuments({"emails.address": {$nin: [null, ""]}}),
+      validEmails: await collection.countDocuments({"emails.verified.status": "verified"}),
       phones: await collection.countDocuments({"telephones.number": {$regex: /^\d{10,11}$/}})
     };
-    console.log('Found documents =>', result);
-    return result;
   } catch(e) {
     console.error(e);
   } finally {
@@ -44,11 +43,14 @@ async function contactSearch(query) {
           "_id": 1,
           "familyName": 1,
           "givenName": 1,
-          "emails": 1,
-          "addresses": 1
-          // "addresses.county": 1,
-          // "addresses.state": 1,
-          // "addresses.postalCode": 1
+          "email": {"$first": "$emails.address"},
+          "city": {"$first": "$addresses.verified.usps.AddressValidateResponse.Address.City"},
+          "county": {"$first": "$addresses.county"},
+          "state": {"$first": "$addresses.verified.usps.AddressValidateResponse.Address.State"},
+          "postalCode": {"$first": "$addresses.verified.usps.AddressValidateResponse.Address.Zip5"},
+          "organization": {"$first": "$addresses.organization"},
+          "verifiedAddress": {"$eq": [{"$first": "$addresses.verified.status"}, "verified"]},
+          "verifiedEmail": {"$eq": [{"$first": "$emails.verified.status"}, "verified"]}
         }
       };
 

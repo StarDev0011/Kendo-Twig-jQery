@@ -43,7 +43,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', require('./routes/index'));
-app.use('/api/contact', require('./routes/contact'));
+app.use('/api/v1/contact', require('./routes/contact'));
 
 app.use('/home', function(err, req, res) {
   res.redirect('/');

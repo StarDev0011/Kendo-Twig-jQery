@@ -1,32 +1,43 @@
+// noinspection HttpUrlsUsage
+
+
 $(document).ready(function() {
-  let dataSource = new kendo.data.DataSource(
+  let contactDataSource = new kendo.data.DataSource(
     {
-      data: "odata",
       transport: {
-        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders"
+        type: "odata",
+        read: {
+          contentType: "application/json",
+          dataType: "json",
+          type: "POST",
+          url: "http://localhost:3200/api/v1/contact/search"
+        }
       },
-      pageSize: 20,
+      pageSize: 25,
       schema: {
         model: {
-          id: "person",
+          id: "contact",
           fields: {
-            email: {type: "string", label: "Email Address"},
+            organization: {type: "string", label: "Organization"},
             familyName: {type: "string", label: "Last Name"},
             givenName: {type: "string", label: "First Name"},
             city: {type: "string", label: "City"},
             county: {type: "string", label: "County"},
             state: {type: "string", label: "State"},
             postalCode: {type: "string", label: "Zip Code"},
+            email: {type: "string", label: "Email Address"},
+            verifiedEmail: {type: "boolean", label: "Email"},
+            verifiedAddress: {type: "boolean", label: "USPS"},
             _id: {type: "string", label: "ID", hidden: true}
           }
         }
       }
     });
 
-  $("#filter").kendoFilter(
+  $("#searchFilter").kendoFilter(
     {
       width: 1100,
-      dataSource: dataSource,
+      dataSource: contactDataSource,
       applyButton: true, // Shows the built-in Apply button.
       expressionPreview: true, // Shows a text preview of the filter expression.
       expression: { // Defining an initial filter expression is not required.
@@ -50,16 +61,16 @@ $(document).ready(function() {
       reorderable: true,
       resizable: true,
       toolbar: ["Export to Excel", "Export to CSV"],
-      dataSource: dataSource,
+      dataSource: contactDataSource,
       columns: [
         {command: {text: "Profile", click: openProfile}, title: " ", width: 15},
-        {field: "email", title: "Email Address", width: 55},
+        {field: "organization", title: "Organization", width: 35},
         {field: "familyName", title: "Last Name", width: 30},
         {field: "givenName", title: "First Name", width: 30},
         {field: "city", title: "City", width: 20},
-        {field: "county", title: "County", width: 20},
         {field: "state", title: "State", width: 15},
-        {field: "postalCode", title: "Zip Code", width: 25}
+        {field: "postalCode", title: "Zip Code", width: 25},
+        {field: "email", title: "Email Address", width: 35}
       ]
     });
 
