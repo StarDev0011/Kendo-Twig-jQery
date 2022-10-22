@@ -71,6 +71,7 @@ $(function() {
   $("#searchGrid").kendoGrid(
     {
       autoBind: true,
+      dataBound: onDataBound,
       dataSource: contactDataSource,
       editable: false,
       filterable: true,
@@ -86,7 +87,17 @@ $(function() {
         "Load Search"
       ],
       columns: [
-        {command: {text: "Profile", click: openProfile}, title: " ", sticky: true, width: 10},
+        {
+          command: {text: "&nbsp;", click: openProfile, iconClass: "fa-sharp fa-solid fa-address-card"},
+          sticky: true, width: 7
+        },
+        {
+          template: '#=dirtyField(data,"verifiedAddress")#<input type="checkbox" #= verifiedAddress ? \'checked="checked"\' : "" # class="chkbx k-checkbox k-checkbox-md k-rounded-md" />',
+          title: "&nbsp;",
+          width: 12,
+          attributes: {class: "k-text-center"}
+        },
+        {field: "verifiedEmail", title: "E", width: 6},
         {field: "organization", title: "Organization", width: 35},
         {field: "familyName", title: "Last Name", width: 30},
         {field: "givenName", title: "First Name", width: 30},
@@ -97,6 +108,22 @@ $(function() {
       ]
     }
   );
+
+  function onDataBound(e) {
+    let grid = this;
+    grid.table.find("tr").each(function() {
+      let dataItem = grid.dataItem(this);
+      let validAddress = dataItem.validAddresses ? "<i class='fa-brands fa-usps'>" : "";
+
+      $(this).find(".badgeTemplate").kendoBadge(
+        {
+          themeColor: themeColor,
+          text: text
+        });
+
+      kendo.bind($(this), dataItem);
+    });
+  }
 
   $("#save").click(function(e) {
     let filter = $("#searchFilter").getKendoFilter();
