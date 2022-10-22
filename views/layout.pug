@@ -29,75 +29,74 @@ html
     block local_head
 
   body(class="d-flex flex-column min-vh-100")
-  nav(class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-gray-100 navbar-theme-primary mb-4")
-    div(class="container position-relative")
-      a(class="navbar-brand me-lg-3" href=(displayName ? '/home' : '/'))
-        img(class="navbar-brand-dark" src="images/njcdd.png" alt="NJCDD Logo")
-        img(class="navbar-brand-light" src="images/njcdd.png" alt="NJCDD Logo")
-      div(class="navbar-collapse collapse w-100" id="navbar-default-primary")
-        div(class="navbar-collapse-header")
-          div(class="row")
-            div(class="col-6 collapse-brand")
-              a(href=(displayName ? '/home' : '/'))
-                img(src="images/njcdd.png" alt="NJCDD Logo")
-            div(class="col-6 collapse-close")
-              i(class="fas fa-times fa-2xl" data-toggle="collapse" role="button"
-                data-target="#navbar-default-primary" aria-controls="navbar-default-primary"
-                aria-expanded="false" aria-label="Toggle navigation")
-        ul(class="navbar-nav navbar-nav-hover align-items-lg-center nav-pills rounded nav-fill flex-column flex-md-row")
+    nav(class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-gray-100 navbar-theme-primary mb-4")
+      div(class="container position-relative")
+        a(class="navbar-brand me-lg-3" href=(displayName ? '/home' : '/'))
+          img(class="navbar-brand-dark" src="images/njcdd.png" alt="NJCDD Logo")
+          img(class="navbar-brand-light" src="images/njcdd.png" alt="NJCDD Logo")
+        div(class="navbar-collapse collapse w-100" id="navbar-default-primary")
+          div(class="navbar-collapse-header")
+            div(class="row")
+              div(class="col-6 collapse-brand")
+                a(href=(displayName ? '/home' : '/'))
+                  img(src="images/njcdd.png" alt="NJCDD Logo")
+              div(class="col-6 collapse-close")
+                i(class="fas fa-times fa-2xl" data-toggle="collapse" role="button"
+                  data-target="#navbar-default-primary" aria-controls="navbar-default-primary"
+                  aria-expanded="false" aria-label="Toggle navigation")
+          ul(class="navbar-nav navbar-nav-hover align-items-lg-center nav-pills rounded nav-fill flex-column flex-md-row")
+            li(class="nav-item")
+              a(href=(displayName ? '/home' : '/') class="nav-link")
+                i(class="fa-sharp fa-solid fa-house")
+                | Home
+            li(class=(isOps ? 'nav-item' : 'invisible'))
+              a(href="/search" class="nav-link")
+                i(class="fa-sharp fa-solid fa-magnifying-glass")
+                | Search
+            li(class=(isManager ? 'nav-item' : 'invisible'))
+              a(href="/admin" class="nav-link")
+                i(class="fa-sharp fa-list-check")
+                | Admin
+          ul(class="nav navbar-nav nav-pills rounded ms-auto mb-2 mb-lg-0")
+            li(class=(displayName ? 'nav-item dropdown' : 'invisible'))
+              a(class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="/profile"
+                role="button" aria-expanded="false" id="dropdownMenuButton1")
+                i(class="fa-sharp fa-solid fa-circle-user")
+                |  Hello #{displayName}
+              ul(class="dropdown-menu" aria-labelledby="dropdownMenuButton1")
+                li
+                  a(class="dropdown-item" href="/profile")
+                    i(class="fa-sharp fa-solid fa-id-card")
+                    |  My Profile
+                li
+                  a(class="dropdown-item" href="/logout")
+                    i(class="fa-sharp fa-solid fa-arrow-right-from-bracket")
+                    |  Log Out
+                li
+                  div(class="dropdown-item")
+                    i(class="fa-sharp fa-solid fa-tag")
+                    |  Version #{version}
+        div(class="d-flex align-items-center")
+          button(class="navbar-toggler ms-2" type="button" data-toggle="collapse"
+            data-target="#navbar-default-primary" aria-controls="navbar-default-primary"
+            aria-expanded="false" aria-label="Toggle navigation")
+            span(class="navbar-toggler-icon")
+
+    block content
+
+    block footer
+      footer(class="mt-auto d-flex justify-content-between")
+        ul(class="nav m-0")
           li(class="nav-item")
-            a(href=(displayName ? '/home' : '/') class="nav-link")
-              i(class="fa-sharp fa-solid fa-house")
-              | Home
-          li(class=(isOps ? 'nav-item' : 'invisible'))
-            a(href="/search" class="nav-link")
-              i(class="fa-sharp fa-solid fa-magnifying-glass")
-              | Search
-          li(class=(isManager ? 'nav-item' : 'invisible'))
-            a(href="/admin" class="nav-link")
-              i(class="fa-sharp fa-list-check")
-              | Admin
-        ul(class="nav navbar-nav nav-pills rounded ms-auto mb-2 mb-lg-0")
-          li(class=(displayName ? 'nav-item dropdown' : 'invisible'))
-            a(class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="/profile"
-              role="button" aria-expanded="false" id="dropdownMenuButton1")
-              i(class="fa-sharp fa-solid fa-circle-user")
-              |  Hello #{displayName}
-            ul(class="dropdown-menu" aria-labelledby="dropdownMenuButton1")
-              li
-                a(class="dropdown-item" href="/profile")
-                  i(class="fa-sharp fa-solid fa-id-card")
-                  |  My Profile
-              li
-                a(class="dropdown-item" href="/logout")
-                  i(class="fa-sharp fa-solid fa-arrow-right-from-bracket")
-                  |  Log Out
-              li
-                div(class="dropdown-item")
-                  i(class="fa-sharp fa-solid fa-tag")
-                  |  Version #{version}
-      div(class="d-flex align-items-center")
-        button(class="navbar-toggler ms-2" type="button" data-toggle="collapse"
-          data-target="#navbar-default-primary" aria-controls="navbar-default-primary"
-          aria-expanded="false" aria-label="Toggle navigation")
-          span(class="navbar-toggler-icon")
-
-
-  block content
-
-  block footer
-    footer(class="footer mt-auto d-flex justify-content-between")
-      ul(class="nav m-0")
-        li(class="nav-item")
-          a(class="nav-link" href="https://njcdd.org" target="_blank")
-            | &copy;&nbsp;2022&nbsp;New Jersey Centers for Developmental Disabilities
-      ul(class="nav m-0")
-        li(class="nav-item")
-          a(class="nav-link text-secondary" aria-current="page" href="#")
-            | Privacy Policy
-        li(class="nav-item")
-          a(class="nav-link text-secondary" aria-current="page" href="#")
-            | Terms and Conditions
+            a(class="nav-link" href="https://njcdd.org" target="_blank")
+              | &copy;&nbsp;2022&nbsp;New Jersey Centers for Developmental Disabilities
+        ul(class="nav m-0")
+          li(class="nav-item")
+            a(class="nav-link text-secondary" aria-current="page" href="#")
+              | Privacy Policy
+          li(class="nav-item")
+            a(class="nav-link text-secondary" aria-current="page" href="#")
+              | Terms and Conditions
 
   block script
     script(src="js/jquery.min.js")
@@ -105,8 +104,8 @@ html
       integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
       crossorigin="anonymous" referrerpolicy="no-referrer")
     script(src="js/bootstrap.min.js")
-    script(src="js/kendo.all.min.js")
     script(src="js/kendo-ui-license.js")
+    script(src="js/kendo.all.min.js")
     script(src="js/volt.js")
     script(src="js/njcdd.js")
-  block local_script
+    block local_script

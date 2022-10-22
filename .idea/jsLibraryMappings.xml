@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <includedPredefinedLibrary name="Node.js Core" />
+    <file url="PROJECT" libraries="{bootstrap.min.js, buttons, jquery.min.js, kendo.all.min.js, popper.js}" />
+    <includedPredefinedLibrary name="HTTP Response Handler" />
   </component>
 </project>
