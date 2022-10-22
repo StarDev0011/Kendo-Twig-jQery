@@ -1,3 +1,7 @@
+/*
+ * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ */
+
 /* Importing fonts from Google */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -14,7 +18,7 @@ body {
 }
 
 .wrapper {
-    max-width: 500px;
+    max-width: 100%;
     min-height: 500px;
     margin: 80px auto;
     padding: 40px 30px 30px 30px;

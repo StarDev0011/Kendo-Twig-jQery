@@ -1,25 +1,13 @@
 extends layout
 
-block content
-  div(class="container")
-    div(class="row")
-      div(class="col-12 col-lg-7")
-        h2
-          | NJCDD Account Search
-    div(class="row")
-      div(class="col-12 col-lg-7")
-        div(class="configurator")
-          div(class="box-col")
-            button(id="save")
-              | Save Filter
-            button(id="load")
-              | Load Filter
+block local_head
+  link(rel="stylesheet", href="styles/njcdd-search.css")
 
-        div(id="searchFilter")
-        br
-        br
-        br
-        div(id="searchGrid")
+block content
+  div(id="searchContainer" class="container col-12 col-lg-7")
+    div(id="searchScopePanel")
+      div(id="searchScope")
+    div(id="searchGrid")
 
 block local_script
   script(src="js/njcdd-search.js")
