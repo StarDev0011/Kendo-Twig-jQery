@@ -92,12 +92,14 @@ $(function() {
           sticky: true, width: 7
         },
         {
-          template: '#=dirtyField(data,"verifiedAddress")#<input type="checkbox" #= verifiedAddress ? \'checked="checked"\' : "" # class="chkbx k-checkbox k-checkbox-md k-rounded-md" />',
-          title: "&nbsp;",
-          width: 12,
-          attributes: {class: "k-text-center"}
+          field: "verifiedAddress", title: "&nbsp;", width: 5, attributes: {class: 'k-text-center'},
+          template: "<i class=\"# verifiedAddress ? 'fa-brands fa-usps' : 'fa-sharp fa-solid fa-ban'#\"></i>"
         },
-        {field: "verifiedEmail", title: "E", width: 6},
+        {field: "verifiedAddress", title: " ", width: 5},
+        {
+          field: "verifiedEmail", title: "&nbsp;", width: 5,
+          attributes: {class: 'k-text-center'}
+        },
         {field: "organization", title: "Organization", width: 35},
         {field: "familyName", title: "Last Name", width: 30},
         {field: "givenName", title: "First Name", width: 30},
