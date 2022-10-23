@@ -109,7 +109,8 @@ router.get('/search',
              res.render('search', setVariables({account: account}));
            });
 
-router.get('/profile/:accountID',
+// router.get('/profile/:accountID',
+router.get('/profile',
            isAuthenticated,
            (req, res) => {
              const account = req.session.account;

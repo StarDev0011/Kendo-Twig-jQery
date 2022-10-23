@@ -160,7 +160,8 @@ function openProfile(e) {
   e.preventDefault();
 
   let profile = this.dataItem($(e.currentTarget).closest("tr"));
-  let url = `/profile/${profile._id}`;
+  // let url = `/profile/${profile._id}`;
+  let url = "/profile";
   console.log(`URL: ${url}`);
   window.open(url, "_blank");
 }
