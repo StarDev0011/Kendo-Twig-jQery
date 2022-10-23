@@ -88,17 +88,32 @@ $(function() {
       ],
       columns: [
         {
-          command: {text: "&nbsp;", click: openProfile, iconClass: "fa-sharp fa-solid fa-address-card"},
-          sticky: true, width: 7
+          sticky: true, width: 7,
+          command: {
+            text: " ",
+            title: "Open Profile",
+            click: openProfile,
+            iconClass: "fa-sharp fa-solid fa-address-card"
+          }
         },
         {
-          field: "verifiedAddress", title: "&nbsp;", width: 5, attributes: {class: 'k-text-center'},
-          template: "<i class=\"# verifiedAddress ? 'fa-brands fa-usps' : 'fa-sharp fa-solid fa-ban'#\"></i>"
+          field: "verifiedAddress", title: "&nbsp;&nbsp;verifiedAddress", width: 5,
+          attributes: {class: 'k-text-center'},
+          template:
+            "# if(verifiedAddress == true){ #" +
+            "<i class='fa-brands fa-usps'></i>" +
+            "#} else {#" +
+            "<i class='fa-sharp fa-solid fa-ban'></i>" +
+            "#} #"
         },
-        {field: "verifiedAddress", title: " ", width: 5},
         {
-          field: "verifiedEmail", title: "&nbsp;", width: 5,
-          attributes: {class: 'k-text-center'}
+          field: "verifiedEmail", title: "&nbsp;&nbsp;verifiedEmail", width: 5, attributes: {class: 'k-text-center'},
+          template:
+            "# if(verifiedEmail == true){ #" +
+            "<i class='fa-sharp fa-solid fa-envelope-circle-check'></i>" +
+            "#} else {#" +
+            "<i class='fa-sharp fa-solid fa-ban'></i>" +
+            "#} #"
         },
         {field: "organization", title: "Organization", width: 35},
         {field: "familyName", title: "Last Name", width: 30},
@@ -115,13 +130,6 @@ $(function() {
     let grid = this;
     grid.table.find("tr").each(function() {
       let dataItem = grid.dataItem(this);
-      let validAddress = dataItem.validAddresses ? "<i class='fa-brands fa-usps'>" : "";
-
-      $(this).find(".badgeTemplate").kendoBadge(
-        {
-          themeColor: themeColor,
-          text: text
-        });
 
       kendo.bind($(this), dataItem);
     });
@@ -150,7 +158,14 @@ $(function() {
 function openProfile(e) {
   e.preventDefault();
 
-  console.log(e);
   let profile = this.dataItem($(e.currentTarget).closest("tr"));
-  console.log(profile);
+  console.log(profile._id);
+}
+
+function onShow(e) {
+  kendoConsole.log("event :: show");
+}
+
+function onHide(e) {
+  kendoConsole.log("event :: hide");
 }
