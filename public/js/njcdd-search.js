@@ -88,7 +88,7 @@ $(function() {
       ],
       columns: [
         {
-          sticky: true, width: 7,
+          sticky: true, width: 10,
           command: {
             text: " ",
             title: "Open Profile",
@@ -97,7 +97,7 @@ $(function() {
           }
         },
         {
-          field: "verifiedAddress", title: "&nbsp;&nbsp;verifiedAddress", width: 5,
+          field: "verifiedAddress", title: "&nbsp;&nbsp;verifiedAddress", width: 7,
           attributes: {class: 'k-text-center'},
           template:
             "# if(verifiedAddress == true){ #" +
@@ -107,7 +107,8 @@ $(function() {
             "#} #"
         },
         {
-          field: "verifiedEmail", title: "&nbsp;&nbsp;verifiedEmail", width: 5, attributes: {class: 'k-text-center'},
+          field: "verifiedEmail", title: "&nbsp;&nbsp;verifiedEmail", width: 7,
+          attributes: {class: 'k-text-center'},
           template:
             "# if(verifiedEmail == true){ #" +
             "<i class='fa-sharp fa-solid fa-envelope-circle-check'></i>" +
@@ -159,13 +160,7 @@ function openProfile(e) {
   e.preventDefault();
 
   let profile = this.dataItem($(e.currentTarget).closest("tr"));
-  console.log(profile._id);
-}
-
-function onShow(e) {
-  kendoConsole.log("event :: show");
-}
-
-function onHide(e) {
-  kendoConsole.log("event :: hide");
+  let url = `/profile/${profile._id}`;
+  console.log(`URL: ${url}`);
+  window.open(url, "_blank");
 }

@@ -105,15 +105,21 @@ router.get('/search',
            isOps,
            (req, res) => {
              const account = req.session.account;
+
              res.render('search', setVariables({account: account}));
            });
 
-router.get('/profile',
+router.get('/profile/:accountID',
            isAuthenticated,
            (req, res) => {
              const account = req.session.account;
+             let profile = {
+               uid: req.params.accountID,
+               givenName: req.params.accountID,
+               familyName: "Testing"
+             };
 
-             res.render('profile', setVariables({account: account}));
+             res.render('profile', setVariables({account: account})); //, content: profile}));
            });
 
 router.get('/admin',
