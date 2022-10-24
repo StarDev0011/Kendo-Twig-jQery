@@ -11,7 +11,7 @@ $(function() {
           contentType: "application/json",
           dataType: "json",
           type: "POST",
-          url: "/api/v1/contact/search"
+          url: "/api/contact/search"
         }
       },
       pageSize: 10,
