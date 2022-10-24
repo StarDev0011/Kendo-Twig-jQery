@@ -6,7 +6,7 @@ $(function() {
   let contactDataSource = new kendo.data.DataSource(
     {
       transport: {
-        type: "odata",
+        type: "jsonp",
         read: {
           contentType: "application/json",
           dataType: "json",
