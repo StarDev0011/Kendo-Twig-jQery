@@ -55,6 +55,12 @@ $(document).ready(function() {
 
   $("#profile-basic").kendoForm(
     {
+      dataSource: profileDataSource,
+      layout: "grid",
+      grid: {
+        cols: 2,
+        gutter: 20
+      },
       formData: {
         FirstName: "",
         LastName: "",
@@ -66,12 +72,6 @@ $(document).ready(function() {
         CNOT: false,
         UNSUB: false
       },
-      dataSource: profileDataSource,
-      layout: "grid",
-      grid: {
-        cols: 2,
-        gutter: 20
-      },
       items: [
         {
           type: "group",
@@ -80,7 +80,6 @@ $(document).ready(function() {
           grid: {cols: 1, gutter: 10},
           items: [
             {
-              dataBind: "value:givenName",
               field: "givenName",
               label: "First Name:",
               validation: {required: true}
