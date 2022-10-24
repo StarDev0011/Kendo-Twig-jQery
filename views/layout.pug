@@ -3,43 +3,45 @@ doctype html
 -  var product;
 -  var version;
 -  var displayName;
+-  var profileID;
 -  var isOps;
 -  var isManager;
 -  var message;
 -  var content;
+-  var error;
 
 html
   head
     title NJCDD Database
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
-    meta(name="description", content="NJCDD Database")
+    meta(name="description", content="NJCDD Account")
     meta(name="author", content="Anthony Software Group, LLC")
-    link(rel="icon", type="image/x-icon", href="images/njcdd.ico")
-    link(rel="stylesheet", href="styles/bootstrap.min.css")
+    link(rel="icon", type="image/x-icon", href="/images/njcdd.ico")
+    link(rel="stylesheet", href="/styles/bootstrap.min.css")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Poppins")
-    link(rel="stylesheet", href="styles/fontawesome/fontawesome.min.css")
-    link(rel="stylesheet", href="styles/fontawesome/brands.min.css")
-    link(rel="stylesheet", href="styles/fontawesome/sharp-solid.min.css")
-    link(rel="stylesheet", href="styles/kendo.common.min.css" )
-    link(rel="stylesheet", href="styles/kendo.default.min.css" )
-    link(rel="stylesheet", href="styles/kendo.default.mobile.min.css" )
-    link(rel="stylesheet", href="styles/volt.css")
-    link(rel="stylesheet", href="styles/njcdd.css")
+    link(rel="stylesheet", href="/styles/fontawesome/fontawesome.min.css")
+    link(rel="stylesheet", href="/styles/fontawesome/brands.min.css")
+    link(rel="stylesheet", href="/styles/fontawesome/sharp-solid.min.css")
+    link(rel="stylesheet", href="/styles/kendo.common.min.css" )
+    link(rel="stylesheet", href="/styles/kendo.default.min.css" )
+    link(rel="stylesheet", href="/styles/kendo.default.mobile.min.css" )
+    link(rel="stylesheet", href="/styles/volt.css")
+    link(rel="stylesheet", href="/styles/njcdd.css")
     block local_head
 
   body(class="d-flex flex-column min-vh-100")
     nav(class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-gray-100 navbar-theme-primary mb-4")
       div(class="container position-relative")
         a(class="navbar-brand me-lg-3" href=(displayName ? '/home' : '/'))
-          img(class="navbar-brand-dark" src="images/njcdd.png" alt="NJCDD Logo")
-          img(class="navbar-brand-light" src="images/njcdd.png" alt="NJCDD Logo")
+          img(class="navbar-brand-dark" src="/images/njcdd.png" alt="NJCDD Logo")
+          img(class="navbar-brand-light" src="/images/njcdd.png" alt="NJCDD Logo")
         div(class="navbar-collapse collapse w-100" id="navbar-default-primary")
           div(class="navbar-collapse-header")
             div(class="row")
               div(class="col-6 collapse-brand")
                 a(href=(displayName ? '/home' : '/'))
-                  img(src="images/njcdd.png" alt="NJCDD Logo")
+                  img(src="/images/njcdd.png" alt="NJCDD Logo")
               div(class="col-6 collapse-close")
                 i(class="fas fa-times fa-2xl" data-toggle="collapse" role="button"
                   data-target="#navbar-default-primary" aria-controls="navbar-default-primary"
@@ -59,13 +61,13 @@ html
                 | Admin
           ul(class="nav navbar-nav nav-pills rounded ms-auto mb-2 mb-lg-0")
             li(class=(displayName ? 'nav-item dropdown' : 'invisible'))
-              a(class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="/profile"
+              a(class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                 role="button" aria-expanded="false" id="dropdownMenuButton1")
                 i(class="fa-sharp fa-solid fa-circle-user")
                 |  Hello #{displayName}
               ul(class="dropdown-menu" aria-labelledby="dropdownMenuButton1")
                 li
-                  a(class="dropdown-item" href="/profile")
+                  a(class="dropdown-item disabled" href=`/profile/${profileID}`)
                     i(class="fa-sharp fa-solid fa-id-card")
                     |  My Profile
                 li
@@ -99,13 +101,13 @@ html
               | Terms and Conditions
 
   block script
-    script(src="js/jquery.min.js")
+    script(src="/js/jquery.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
       integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
       crossorigin="anonymous" referrerpolicy="no-referrer")
-    script(src="js/bootstrap.min.js")
-    script(src="js/kendo.all.min.js")
-    script(src="js/kendo-ui-license.js")
-    script(src="js/volt.js")
-    script(src="js/njcdd.js")
+    script(src="/js/bootstrap.min.js")
+    script(src="/js/kendo.all.min.js")
+    script(src="/js/kendo-ui-license.js")
+    script(src="/js/volt.js")
+    script(src="/js/njcdd.js")
     block local_script

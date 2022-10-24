@@ -1,8 +1,48 @@
+/*
+ * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ */
+
+/**
+ * profileID is passed in from profile.pug view
+ */
+
 $(document).ready(function() {
   let basicValidationSuccess = $("#basic-validation-success");
   let interestsValidationSuccess = $("#interests-validation-success");
   let detailsValidationSuccess = $("#details-validation-success");
   let contactValidationSuccess = $("#contact-validation-success");
+  let profileDataSource = new kendo.data.DataSource(
+    {
+      transport: {
+        type: "odata",
+        read: {
+          contentType: "application/json",
+          dataType: "json",
+          type: "GET",
+          url: `/api/v1/contact/profile/${profileID}`
+        }
+      },
+      schema: {
+        model: {
+          id: "_id",
+          fields: {
+            familyName: {type: "string", label: "Last Name"},
+            additionalName: {type: "string", label: "Middle Name"},
+            givenName: {type: "string", label: "First Name"},
+            "address.city": {type: "string", label: "City"},
+            "address.county": {type: "string", label: "County"},
+            "address.state": {type: "string", label: "State"},
+            "address.postalCode": {type: "string", label: "Zip Code"},
+            organization: {type: "string", label: "Organization"},
+            email: {type: "string", label: "Email Address"},
+            verifiedEmail: {type: "boolean", label: "Email"},
+            verifiedAddress: {type: "boolean", label: "USPS"},
+            _id: {type: "string", label: "ID", hidden: true}
+          }
+        }
+      }
+    }
+  );
 
   $("#tabstrip").kendoTabStrip(
     {
@@ -16,16 +56,17 @@ $(document).ready(function() {
   $("#profile-basic").kendoForm(
     {
       formData: {
-        FirstName: "John",
-        LastName: "Doe",
-        Email: "john.doe@email.com",
-        PFMAG: true,
-        AINAC: true,
+        FirstName: "",
+        LastName: "",
+        Email: "",
+        PFMAG: false,
+        AINAC: false,
         DINFO: false,
         CGED: false,
         CNOT: false,
         UNSUB: false
       },
+      dataSource: profileDataSource,
       layout: "grid",
       grid: {
         cols: 2,
@@ -39,17 +80,18 @@ $(document).ready(function() {
           grid: {cols: 1, gutter: 10},
           items: [
             {
-              field: "FirstName",
+              dataBind: "value:givenName",
+              field: "givenName",
               label: "First Name:",
               validation: {required: true}
             },
             {
-              field: "LastName",
+              field: "familyName",
               label: "Last Name:",
               validation: {required: true}
             },
             {
-              field: "Email",
+              field: "email",
               label: "Email",
               validation: {
                 required: true,
@@ -143,6 +185,7 @@ $(document).ready(function() {
           "special-education": false
         }
       },
+      dataSource: profileDataSource,
       layout: "grid",
       grid: {
         cols: 2,

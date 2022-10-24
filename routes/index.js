@@ -13,20 +13,24 @@ const router = require('express').Router(),
     isManager: false,
     isOps: false,
     displayName: null,
+    profileID: null,
     message: null,
-    content: {}
+    content: {},
+    error: {}
   };
 
 function setVariables(x) {
   const account = x.account === undefined ? null : x.account;
   const message = x.message === undefined ? null : x.message;
   const content = x.content === undefined ? {} : x.content;
+  const error = x.error === undefined ? {} : x.error;
   let result = Object.assign({}, pageVariables);
 
   if(account) {
     result.isOps = account.isOps;
     result.isManager = account.isManager;
     result.displayName = account.displayName;
+    result.profileID = account.profileID;
   }
 
   if(message) {
@@ -35,6 +39,10 @@ function setVariables(x) {
 
   if(content) {
     result.content = content;
+  }
+
+  if(error) {
+    result.error = error;
   }
 
   return result;
@@ -89,12 +97,23 @@ router.get('/home',
 
 router.post('/home',
             async(req, res) => {
-              const promise = ldapController.authenticateAccount(req.body.email, req.body.pwd);
+              const email = req.body.email;
+              const promise = ldapController.authenticateAccount(email, req.body.pwd);
 
               promise
                 .then(account => {
                   req.session.account = account;
-                  res.redirect('/home');
+                  const promise2 = mongodbController.getProfileID((email));
+
+                  promise2
+                    .then(profileID => {
+                      req.session.account.profileID = profileID ? profileID._id : null;
+                      res.redirect('/home');
+                    })
+                    .catch((error) => {
+                      req.session.account.profileID = null;
+                      res.render('index', setVariables({message: error}));
+                    });
                 })
                 .catch((error) => {
                   res.render('index', setVariables({message: error}));
@@ -109,18 +128,30 @@ router.get('/search',
              res.render('search', setVariables({account: account}));
            });
 
-// router.get('/profile/:accountID',
-router.get('/profile',
+router.get('/profile/:profileID',
            isAuthenticated,
            (req, res) => {
-             const account = req.session.account;
-             let profile = {
-               uid: req.params.accountID,
-               givenName: req.params.accountID,
-               familyName: "Testing"
-             };
+             const profileID = req.params.profileID,
+               account = req.session.account;
 
-             res.render('profile', setVariables({account: account})); //, content: profile}));
+             if(account.profileID === profileID || (account.isManager || account.isOps)) {
+               const content = {
+                 profileID: profileID
+               };
+
+               res.render('profile', setVariables({account: account, content: content}));
+             } else {
+               res.render("error",
+                          setVariables(
+                            {
+                              account: account,
+                              content: content,
+                              message: "Bad Request",
+                              error: {status: 404, stack: null}
+                            }
+                          )
+               );
+             }
            });
 
 router.get('/admin',

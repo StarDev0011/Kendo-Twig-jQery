@@ -2,7 +2,6 @@
  * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
  */
 
-
 $(function() {
   let contactDataSource = new kendo.data.DataSource(
     {
@@ -39,8 +38,8 @@ $(function() {
 
   $('#searchScopePanel').kendoExpansionPanel(
     {
-      title: 'Search Scope',
-      subTitle: 'Set Search Scope',
+      title: 'Audience',
+      subTitle: 'Define the overall audience',
       expanded: true
     }
   );
@@ -160,8 +159,7 @@ function openProfile(e) {
   e.preventDefault();
 
   let profile = this.dataItem($(e.currentTarget).closest("tr"));
-  // let url = `/profile/${profile._id}`;
-  let url = "/profile";
+  let url = `/profile/${profile._id}`;
   console.log(`URL: ${url}`);
   window.open(url, "_blank");
 }
