@@ -67,7 +67,7 @@ html
                 |  Hello #{displayName}
               ul(class="dropdown-menu" aria-labelledby="dropdownMenuButton1")
                 li
-                  a(class="dropdown-item disabled" href=`/profile/${profileID}`)
+                  a(class=(profileID ? "dropdown-item" : "dropdown-item disabled") href=`/profile/${profileID}`)
                     i(class="fa-sharp fa-solid fa-id-card")
                     |  My Profile
                 li
