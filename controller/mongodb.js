@@ -44,6 +44,7 @@ async function contactSummary() {
     await client.connect();
     const db = client.db(dbName),
       collection = db.collection(contact);
+    console.info(`Connected contactSummary to ${dbName}.${contact} on server ${uri}`);
 
     return {
       contacts: await collection.countDocuments({}),
@@ -87,7 +88,7 @@ async function contactSearch(query) {
     let cursor = collection.find(query, options);
     let result = await cursor.toArray();
 
-    console.log(`Found ${result.length} documents`);
+    console.info(`Found ${result.length} documents`);
     return result;
   } catch(e) {
     console.error(e);
