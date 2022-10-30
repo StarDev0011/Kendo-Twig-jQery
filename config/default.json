@@ -4,7 +4,7 @@
     "host": "http://localhost:3200/api/v1"
   },
   "ldap": {
-    "host": "ldap://ldap.account.njcdd.org:1389",
+    "host": "ldap://ldap:1389",
     "baseDn": "dc=account,dc=njcdd,dc=org",
     "userDn": "ou=users,dc=account,dc=njcdd,dc=org",
     "groups": {
@@ -17,7 +17,7 @@
     "host": "redis://:adminpassword@redis:6379/0"
   },
   "mongodb": {
-    "host": "mongodb://admin:adminpassword@mongodb.account.njcdd.org:27017/admin",
+    "host": "mongodb://admin:adminpassword@mongodb:27017/admin",
     "database": "njcdd",
     "collection": {
       "contact": "contact"

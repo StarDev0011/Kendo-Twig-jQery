@@ -4,12 +4,12 @@
     "host": "http://account.account.njcdd.org:3200/api/v1"
   },
   "ldap": {
-    "host": "ldap://ldap.account.njcdd.org:1389"
+    "host": "ldap://ldap:1389"
   },
   "redis": {
     "host": "redis://:adminpassword@redis:6379/0"
   },
   "mongodb": {
-    "host": "mongodb://admin:adminpassword@mongodb.account.njcdd.org:27017/admin"
+    "host": "mongodb://admin:adminpassword@mongodb:27017/admin"
   }
 }
