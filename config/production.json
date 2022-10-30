@@ -1,7 +1,7 @@
 {
   "app": {
     "port": 3200,
-    "host": "http://account.njcdd.org:3200/api/v1"
+    "host": "http://account.account.njcdd.org:3200/api/v1"
   },
   "ldap": {
     "host": "ldap://ldap.account.njcdd.org:1389"

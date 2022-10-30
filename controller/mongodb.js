@@ -69,7 +69,6 @@ async function contactSearch(query) {
     const db = client.db(dbName),
       collection = db.collection(contact),
       options = {
-        // limit: 1000,
         projection: {
           "_id": 1,
           "familyName": 1,

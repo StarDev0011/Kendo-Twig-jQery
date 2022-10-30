@@ -40,7 +40,7 @@ $(function() {
     {
       title: 'Audience',
       subTitle: 'Define the overall audience',
-      expanded: true
+      expanded: false
     }
   );
 
@@ -51,9 +51,7 @@ $(function() {
       expressionPreview: true, // Shows a text preview of the filter expression.
       expression: { // Defining an initial filter expression is not required.
         logic: "and",
-        filters: [
-          {field: "state", value: "NJ", operator: "eq"}
-        ]
+        filters: []
       },
       fields: [
         {name: "organization", type: "string", label: "Organization"},
