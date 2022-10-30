@@ -6,6 +6,9 @@
   "ldap": {
     "host": "ldap://ldap.account.njcdd.org:1389"
   },
+  "redis": {
+    "host": "redis://:adminpassword@redis.account.njcdd.org:6379/0"
+  },
   "mongodb": {
     "host": "mongodb://admin:adminpassword@mongodb.account.njcdd.org:27017/admin"
   }
