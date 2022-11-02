@@ -11,6 +11,7 @@ router.post('/search',
 
               promise
                 .then((contacts) => {
+                  console.log(`Returning ${contacts.length} documents to UI`);
                   res.json(contacts);
                 })
                 .catch((error) => {
