@@ -15,6 +15,13 @@ footer {
     background-color: #166b65;
 }
 
+/* Required for compatability between FontAwesome and KendoUI */
+.fa.k-sprite,
+.fa.k-sprite::before {
+    font-size: 12px;
+    line-height: 12px;
+}
+
 .container {
     min-width: 95%;
     padding: 0 15px;

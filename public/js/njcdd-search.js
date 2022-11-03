@@ -39,7 +39,7 @@ $(function() {
   $('#searchScopePanel').kendoExpansionPanel(
     {
       title: 'Audience',
-      subTitle: 'Select and Audience',
+      subTitle: 'Select an Audience',
       expanded: false
     }
   );
@@ -133,7 +133,7 @@ $(function() {
     });
   }
 
-  $("#save").click(function(e) {
+  $("#save").on("click", function(e) {
     let filter = $("#searchFilter").getKendoFilter();
     filter.applyFilter();
 
@@ -141,7 +141,7 @@ $(function() {
     localStorage["kendo-filter-options"] = kendo.stringify(filter.getOptions());
   });
 
-  $("#load").click(function(e) {
+  $("#load").on("click", function(e) {
     e.preventDefault();
     let options = localStorage["kendo-filter-options"];
     if(options) {
