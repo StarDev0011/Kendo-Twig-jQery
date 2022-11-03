@@ -1,119 +1,64 @@
 extends layout
 
+block local_head
+  link(rel="stylesheet", href="/styles/njcdd-home.css")
+
 block content
-  div(class="container")
-    div(class="row")
-      div(class="col-4")
-        div(class="card border-0 shadow")
-          div(class="card-body")
-            div(class="row d-block d-xl-flex align-items-center")
-              div(class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center")
-                div(class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
-                  i(class="fa-sharp fa-solid fa-file-user fa-3x")
-                div(class="d-sm-none")
-                  h2(class="fw-extrabold h5")
-                    | Database Records
-                  h3(class="mb-1")
-                    | #{content.contacts.toLocaleString()}
-              div(class="col-12 col-xl-7 px-xl-0")
-                div(class="d-none d-sm-block")
-                  h2(class="h6 text-gray-400 mb-0")
-                    | Database Records
-                  h3(class="fw-extrabold mb-2")
-                    | #{content.contacts.toLocaleString()}
+  div(id="njcdd-summary")
+  // Templates
+  script(id="contacts-card-template" type="text/x-kendo-template")
+    div(class="cards-container")
+      div(id="contacts-card" class="k-card k-card-horizontal border-0")
+        div(class="k-card-image icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
+          i(class="fa-sharp fa-solid fa-file-user fa-3x")
+        div(class="k-vbox k-column")
+          div(class="k-card-body")
+            h2(id="card-contacts-value" class="mb-1")
 
-      div(class="col-4")
-        div(class="card border-0 shadow")
-          div(class="card-body")
-            div(class="row d-block d-xl-flex align-items-center")
-              div(class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center")
-                div(class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
-                  i(class="fa-regular fa-at fa-3x")
-                div(class="d-sm-none")
-                  h2(class="fw-extrabold h5")
-                    | Email Addresses
-                  h3(class="mb-1")
-                    | #{content.emails.toLocaleString()}
-              div(class="col-12 col-xl-7 px-xl-0")
-                div(class="d-none d-sm-block")
-                  h2(class="h6 text-gray-400 mb-0")
-                    | Email Addresses
-                  h3(class="fw-extrabold mb-2")
-                    | #{content.emails.toLocaleString()}
+  script(id="phones-card-template" type="text/x-kendo-template")
+    div(class="cards-container")
+      div(id="phones-card" class="k-card k-card-horizontal border-0")
+        div(class="k-card-image icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
+          i(class="fa-sharp fa-solid fa-phone fa-3x")
+        div(class="k-vbox k-column")
+          div(class="k-card-body")
+            h2(id="card-phones-value" class="mb-1")
 
-      div(class="col-4")
-        div(class="card border-0 shadow")
-          div(class="card-body")
-            div(class="row d-block d-xl-flex align-items-center")
-              div(class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center")
-                div(class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
-                  i(class="fa-sharp fa-solid fa-envelope-circle-check fa-3x")
-                div(class="d-sm-none")
-                  h2(class="fw-extrabold h5")
-                    | Verified Emails
-                  h3(class="mb-1")
-                    | #{content.validEmails.toLocaleString()}
-              div(class="col-12 col-xl-7 px-xl-0")
-                div(class="d-none d-sm-block")
-                  h2(class="h6 text-gray-400 mb-0")
-                    | Verified Emails
-                  h3(class="fw-extrabold mb-2")
-                    | #{content.validEmails.toLocaleString()}
+  script(id="addresses-card-template" type="text/x-kendo-template")
+    div(class="cards-container")
+      div(id="addresses-card" class="k-card k-card-horizontal border-0")
+        div(class="k-card-image icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
+          i(class="fa-sharp fa-solid fa-mailbox fa-3x")
+        div(class="k-vbox k-column")
+          div(class="k-card-body")
+            h2(id="card-addresses-value" class="mb-1")
 
-    div(class="row mt-2")
-      div(class="col-4")
-        div(class="card border-0 shadow")
-          div(class="card-body")
-            div(class="row d-block d-xl-flex align-items-center")
-              div(class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center")
-                div(class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
-                  i(class="fa-sharp fa-solid fa-phone fa-3x")
-                div(class="d-sm-none")
-                  h2(class="fw-extrabold h5")
-                    | Phone Numbers
-                  h3(class="mb-1")
-                    | #{content.phones.toLocaleString()}
-              div(class="col-12 col-xl-7 px-xl-0")
-                div(class="d-none d-sm-block")
-                  h2(class="h6 text-gray-400 mb-0")
-                    | Phone Numbers
-                  h3(class="fw-extrabold mb-2")
-                    | #{content.phones.toLocaleString()}
+  script(id="v-addresses-card-template" type="text/x-kendo-template")
+    div(class="cards-container")
+      div(id="v-addresses-card" class="k-card k-card-horizontal border-0")
+        div(class="k-card-image icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
+          i(class="fa-brands fa-usps fa-3x")
+        div(class="k-vbox k-column")
+          div(class="k-card-body")
+            h2(id="card-v-addresses-value" class="mb-1")
 
-      div(class="col-4")
-        div(class="card border-0 shadow")
-          div(class="card-body")
-            div(class="row d-block d-xl-flex align-items-center")
-              div(class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center")
-                div(class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
-                  i(class="fa-sharp fa-solid fa-mailbox fa-3x")
-                div(class="d-sm-none")
-                  h2(class="fw-extrabold h5")
-                    | Mailing Addresses
-                  h3(class="mb-1")
-                    | #{content.addresses.toLocaleString()}
-              div(class="col-12 col-xl-7 px-xl-0")
-                div(class="d-none d-sm-block")
-                  h2(class="h6 text-gray-400 mb-0")
-                    | Mailing Addresses
-                  h3(class="fw-extrabold mb-2")
-                    | #{content.addresses.toLocaleString()}
+  script(id="emails-card-template" type="text/x-kendo-template")
+    div(class="cards-container")
+      div(id="emails-card" class="k-card k-card-horizontal border-0")
+        div(class="k-card-image icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
+          i(class="fa-regular fa-at fa-3x")
+        div(class="k-vbox k-column")
+          div(class="k-card-body")
+            h2(id="card-emails-value" class="mb-1")
 
-      div(class="col-4")
-        div(class="card border-0 shadow")
-          div(class="card-body")
-            div(class="row d-block d-xl-flex align-items-center")
-              div(class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center")
-                div(class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
-                  i(class="fa-brands fa-usps fa-3x")
-                div(class="d-sm-none")
-                  h2(class="fw-extrabold h5")
-                    | Verified Addresses
-                  h3(class="mb-1")
-                    | #{content.validAddresses.toLocaleString()}
-              div(class="col-12 col-xl-7 px-xl-0")
-                div(class="d-none d-sm-block")
-                  h2(class="h6 text-gray-400 mb-0")
-                    | Verified Addresses
-                  h3(class="fw-extrabold mb-2")
-                    | #{content.validAddresses.toLocaleString()}
+  script(id="v-emails-card-template" type="text/x-kendo-template")
+    div(class="cards-container")
+      div(id="v-emails-card" class="k-card k-card-horizontal border-0")
+        div(class="k-card-image icon-shape icon-shape-tertiary rounded me-4 me-sm-0")
+          i(class="fa-sharp fa-solid fa-envelope-circle-check fa-3x")
+        div(class="k-vbox k-column")
+          div(class="k-card-body")
+            h2(id="card-v-emails-value" class="mb-1")
+
+block local_script
+  script(src="/js/njcdd-home.js")

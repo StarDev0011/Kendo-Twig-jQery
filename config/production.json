@@ -3,6 +3,9 @@
     "port": 3200,
     "host": "https://account.njcdd.org:3200/api/v1"
   },
+  "api": {
+    "host": "http://njcdd-api:3210/api/v1"
+  },
   "ldap": {
     "host": "ldap://ldap:1389"
   },

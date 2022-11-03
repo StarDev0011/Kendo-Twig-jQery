@@ -1,0 +1,20 @@
+/*
+ * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ */
+
+#njcdd-summary {
+    background-color: transparent;
+}
+
+.k-card {
+    height: 100%;
+    width: 100%;
+}
+
+.k-card-header {
+    flex: 0 0 auto;
+}
+
+.k-card-body {
+    flex: 0 0 auto;
+}

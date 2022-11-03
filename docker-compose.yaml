@@ -1,0 +1,51 @@
+version: '3.9'
+
+networks:
+  aces-net:
+    external: true
+
+services:
+  njcdd-api:
+    image: anthonysw/njcdd-api:latest
+    container_name: njcdd-api
+    ports:
+      - "3210:3210"
+    restart: always
+    networks:
+      - aces-net
+    labels:
+      - "traefik.enable=false"
+    healthcheck:
+      test: curl "http://njcdd-api:3210/" >/dev/null || exit 1
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+        reservations:
+          memory: 32m
+
+  njcdd-web:
+    image: anthonysw/njcdd-web:latest
+    container_name: njcdd-web
+    ports:
+      - "3200:3200"
+    restart: unless-stopped
+    networks:
+      - aces-net
+    depends_on: njcdd-api
+    healthcheck:
+      test: curl "http://njcdd-web:3200/" >/dev/null || exit 1
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+        reservations:
+          memory: 32m

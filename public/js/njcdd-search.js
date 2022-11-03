@@ -11,7 +11,7 @@ $(function() {
           contentType: "application/json",
           dataType: "json",
           type: "POST",
-          url: "/api/contact/search"
+          url: "http://njcdd-api:3210/api/v1/profile/search"
         }
       },
       pageSize: 10,
@@ -39,7 +39,7 @@ $(function() {
   $('#searchScopePanel').kendoExpansionPanel(
     {
       title: 'Audience',
-      subTitle: 'Define the overall audience',
+      subTitle: 'Select and Audience',
       expanded: false
     }
   );

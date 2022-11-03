@@ -4,7 +4,6 @@
 
 const router = require('express').Router(),
   ldapController = require('../controller/ldap'),
-  mongodbController = require('../controller/mongodb'),
   product = require('../package'),
   pageVariables = {
     product: product.name,
@@ -79,88 +78,59 @@ router.get('/logout',
              res.redirect('/');
            });
 
-router.get('/home',
-           isAuthenticated,
-           (req, res) => {
-             const account = req.session.account;
-             const promise = mongodbController.contactSummary();
+router.get('/home', isAuthenticated, (req, res) => {
+  const account = req.session.account;
 
-             console.log(account);
-             promise
-               .then((summary) => {
-                 res.render('home', setVariables({account: account, content: summary}));
-               })
-               .catch((error) => {
-                 res.render('index', setVariables({message: error}));
-               });
-           });
+  res.render('home', setVariables({account: account}));
+});
 
-router.post('/home',
-            async(req, res) => {
-              const email = req.body.email;
-              const promise = ldapController.authenticateAccount(email, req.body.pwd);
+router.post('/home', async(req, res) => {
+  const email = req.body.email;
+  const promise = ldapController.authenticateAccount(email, req.body.pwd);
 
-              promise
-                .then(account => {
-                  req.session.account = account;
-                  const promise2 = mongodbController.getProfileID((email));
+  promise
+    .then(account => {
+      req.session.account = account;
+      res.redirect('/home');
+    })
+    .catch((error) => {
+      res.render('index', setVariables({message: error}));
+    });
+});
 
-                  promise2
-                    .then(profileID => {
-                      req.session.account.profileID = profileID ? profileID._id : null;
-                      res.redirect('/home');
-                    })
-                    .catch((error) => {
-                      req.session.account.profileID = null;
-                      res.render('index', setVariables({message: error}));
-                    });
-                })
-                .catch((error) => {
-                  res.render('index', setVariables({message: error}));
-                });
-            });
+router.get('/search', isOps, (req, res) => {
+  const account = req.session.account;
 
-router.get('/search',
-           isOps,
-           (req, res) => {
-             const account = req.session.account;
+  res.render('search', setVariables({account: account}));
+});
 
-             res.render('search', setVariables({account: account}));
-           });
+router.get('/profile/:profileID', isAuthenticated, (req, res) => {
+  const profileID = req.params.profileID,
+    account = req.session.account;
 
-router.get('/profile/:profileID',
-           isAuthenticated,
-           (req, res) => {
-             const profileID = req.params.profileID,
-               account = req.session.account;
+  if(account.profileID === profileID || (account.isManager || account.isOps)) {
+    const content = {
+      profileID: profileID
+    };
 
-             if(account.profileID === profileID || (account.isManager || account.isOps)) {
-               const content = {
-                 profileID: profileID
-               };
+    res.render('profile', setVariables({account: account, content: content}));
+  } else {
+    const variables = {
+      account: account,
+      content: content,
+      message: "Bad Request",
+      error: {status: 404, stack: null}
+    };
 
-               res.render('profile', setVariables({account: account, content: content}));
-             } else {
-               res.render("error",
-                          setVariables(
-                            {
-                              account: account,
-                              content: content,
-                              message: "Bad Request",
-                              error: {status: 404, stack: null}
-                            }
-                          )
-               );
-             }
-           });
+    res.render("error", setVariables(variables));
+  }
+});
 
-router.get('/admin',
-           isManager,
-           (req, res) => {
-             const account = req.session.account;
+router.get('/admin', isManager, (req, res) => {
+  const account = req.session.account;
 
-             res.render('admin', setVariables({account: account}));
-           });
+  res.render('admin', setVariables({account: account}));
+});
 
 function isAuthenticated(req, res, next) {
   if(req.session.account) {

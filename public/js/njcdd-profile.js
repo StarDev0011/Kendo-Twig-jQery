@@ -5,7 +5,6 @@
 /**
  * profileID is passed in from profile.pug view
  */
-
 $(document).ready(function() {
   let basicValidationSuccess = $("#basic-validation-success");
   let interestsValidationSuccess = $("#interests-validation-success");
@@ -19,7 +18,7 @@ $(document).ready(function() {
           contentType: "application/json",
           dataType: "json",
           type: "GET",
-          url: `/api/v1/contact/profile/${profileID}`
+          url: `http://njcdd-api:3210/api/v1/profile/${profileID}`
         }
       },
       schema: {

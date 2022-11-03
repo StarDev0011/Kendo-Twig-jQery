@@ -5,6 +5,7 @@
     </EXTENSION>
     <envs>
       <env name="DEBUG" value="njcdd.web:*" />
+      <env name="NODE_ENV" value="development" />
     </envs>
     <method v="2" />
   </configuration>
