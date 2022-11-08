@@ -51,7 +51,6 @@ let tileLayout = {
 };
 
 $(function() {
-  console.log(window.location.href);
   $.get("http://njcdd-api:3210/api/v1/summary", (data) => {
     if(data) {
       console.log(data);
