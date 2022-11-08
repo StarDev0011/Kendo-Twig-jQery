@@ -51,21 +51,8 @@ let tileLayout = {
 };
 
 $(function() {
-  console.log(window.href);
-  $.get("http://njcdd-api.njcdd.staging:3210/api/v1/summary", (data) => {
-    if(data) {
-      console.log(data);
-
-      tileLayout.columns = getTiledColumns();
-      $("#njcdd-summary").kendoTileLayout(tileLayout);
-      $("#card-contacts-value").text(data.contacts.toLocaleString());
-      $("#card-addresses-value").text(data.addresses.toLocaleString());
-      $("#card-v-addresses-value").text(data.validAddresses.toLocaleString());
-      $("#card-emails-value").text(data.emails.toLocaleString());
-      $("#card-v-emails-value").text(data.validEmails.toLocaleString());
-      $("#card-phones-value").text(data.phones.toLocaleString());
-    }
-  });
+  tileLayout.columns = getTiledColumns();
+  $("#njcdd-summary").kendoTileLayout(tileLayout);
 });
 
 $(window).on("resize", function() {

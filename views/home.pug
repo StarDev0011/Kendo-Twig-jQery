@@ -14,6 +14,7 @@ block content
         div(class="k-vbox k-column")
           div(class="k-card-body")
             h2(id="card-contacts-value" class="mb-1")
+              | #{content.contacts.toLocaleString()}
 
   script(id="phones-card-template" type="text/x-kendo-template")
     div(class="cards-container")
@@ -23,6 +24,7 @@ block content
         div(class="k-vbox k-column")
           div(class="k-card-body")
             h2(id="card-phones-value" class="mb-1")
+              | #{content.phones.toLocaleString()}
 
   script(id="addresses-card-template" type="text/x-kendo-template")
     div(class="cards-container")
@@ -32,6 +34,7 @@ block content
         div(class="k-vbox k-column")
           div(class="k-card-body")
             h2(id="card-addresses-value" class="mb-1")
+              | #{content.addresses.toLocaleString()}
 
   script(id="v-addresses-card-template" type="text/x-kendo-template")
     div(class="cards-container")
@@ -41,6 +44,7 @@ block content
         div(class="k-vbox k-column")
           div(class="k-card-body")
             h2(id="card-v-addresses-value" class="mb-1")
+              | #{content.validAddresses.toLocaleString()}
 
   script(id="emails-card-template" type="text/x-kendo-template")
     div(class="cards-container")
@@ -50,6 +54,7 @@ block content
         div(class="k-vbox k-column")
           div(class="k-card-body")
             h2(id="card-emails-value" class="mb-1")
+              | #{content.emails.toLocaleString()}
 
   script(id="v-emails-card-template" type="text/x-kendo-template")
     div(class="cards-container")
@@ -59,6 +64,7 @@ block content
         div(class="k-vbox k-column")
           div(class="k-card-body")
             h2(id="card-v-emails-value" class="mb-1")
+              | #{content.validEmails.toLocaleString()}
 
 block local_script
   script(src="/js/njcdd-home.js")

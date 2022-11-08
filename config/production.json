@@ -1,2 +1,17 @@
 {
+  "api": {
+    "domain": "account.njcdd.org"
+  },
+  "app": {
+    "domain": "account.njcdd.org"
+  },
+  "ldap": {
+    "domain": "account.njcdd.org"
+  },
+  "minio": {
+    "domain": "account.njcdd.org"
+  },
+  "redis": {
+    "domain": "account.njcdd.org"
+  }
 }

@@ -2,9 +2,9 @@
  * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
  */
 
-const config = require("config");
-const ldap = require('ldapjs');
-const nodemailer = require('nodemailer');
+const config = require("config"),
+  ldap = require('ldapjs'),
+  nodemailer = require('nodemailer');
 
 async function dbConnect() {
   return new Promise((resolve, reject) => {

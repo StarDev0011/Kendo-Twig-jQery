@@ -1,0 +1,17 @@
+{
+  "api": {
+    "domain": "njcdd.staging"
+  },
+  "app": {
+    "domain": "njcdd.staging"
+  },
+  "ldap": {
+    "domain": "njcdd.staging"
+  },
+  "minio": {
+    "domain": "njcdd.staging"
+  },
+  "redis": {
+    "domain": "njcdd.staging"
+  }
+}

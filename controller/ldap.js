@@ -8,7 +8,7 @@ const ldap = require('ldapjs');
 
 const ldapUserDn = config.get("ldap.userDn"),
   server = ldap.createServer(),
-  url = `ldap://${config.get("ldap.host")}.${config.get("app.domain")}:${config.get("ldap.port")}`;
+  url = `${config.get("ldap.scheme")}://${config.get("ldap.host")}.${config.get("ldap.domain")}:${config.get("ldap.port")}`;
 
 async function authenticateAccount(username, password) {
   let options = {

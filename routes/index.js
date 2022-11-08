@@ -3,6 +3,7 @@
  */
 
 const router = require('express').Router(),
+  apiController = require('../controller/api'),
   ldapController = require('../controller/ldap'),
   product = require('../package'),
   pageVariables = {
@@ -80,8 +81,20 @@ router.get('/logout',
 
 router.get('/home', isAuthenticated, (req, res) => {
   const account = req.session.account;
+  const promise = apiController.summary();
 
-  res.render('home', setVariables({account: account}));
+  promise
+    .then(summary => {
+      let variables = {
+        account: account,
+        content: summary
+      };
+
+      res.render('home', setVariables(variables));
+    })
+    .catch((error) => {
+      res.render('index', setVariables({message: error}));
+    });
 });
 
 router.post('/home', async(req, res) => {

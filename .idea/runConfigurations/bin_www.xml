@@ -5,7 +5,16 @@
     </EXTENSION>
     <envs>
       <env name="DEBUG" value="njcdd.web:*" />
+      <env name="NJCDD_ADMIN_PASSWORD" value="passworD123" />
+      <env name="NJCDD_ADMIN_USERNAME" value="admin" />
       <env name="NODE_ENV" value="development" />
+      <env name="NJCDD_API_PORT" value="3210" />
+      <env name="NJCDD_DOMAIN" value="njcdd.staging" />
+      <env name="NJCDD_LDAP_PORT" value="1389" />
+      <env name="NJCDD_REDIS_PORT" value="6379" />
+      <env name="NJCDD_MINIO_API_PORT" value="9000" />
+      <env name="NJCDD_MINIO_UI_PORT" value="9001" />
+      <env name="NJCDD_MONGODB_PORT" value="27017" />
     </envs>
     <method v="2" />
   </configuration>

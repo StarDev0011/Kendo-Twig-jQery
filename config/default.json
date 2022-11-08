@@ -1,6 +1,8 @@
 {
   "api": {
-    "host": "njcdd-api"
+    "host": "njcdd-api",
+    "path": "/api/v1",
+    "scheme": "http"
   },
   "ldap": {
     "baseDn": "dc=account,dc=njcdd,dc=org",
@@ -10,12 +12,15 @@
       "operators": "cn=operators,ou=users,dc=account,dc=njcdd,dc=org"
     },
     "host": "njcdd-ldap",
+    "scheme": "ldap",
     "userDn": "ou=users,dc=account,dc=njcdd,dc=org"
   },
   "minio": {
     "host": "njcdd-minio"
   },
   "redis": {
-    "host": "njcdd-redis"
+    "db": 0,
+    "host": "njcdd-redis",
+    "scheme": "redis"
   }
 }
