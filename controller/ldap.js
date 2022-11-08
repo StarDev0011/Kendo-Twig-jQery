@@ -44,7 +44,7 @@ async function authenticateAccount(username, password) {
     console.log(result);
     return result;
   } catch(err) {
-    console.log(err);
+    console.log(`Login failed for '${err}'. Host is Host is '${url}'`);
     throw new Error("Either the account name or password was not correct.");
   }
 }
