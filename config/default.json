@@ -1,4 +1,7 @@
 {
+  "api": {
+    "host": "njcdd-api"
+  },
   "ldap": {
     "baseDn": "dc=account,dc=njcdd,dc=org",
     "groups": {
