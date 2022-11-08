@@ -1,25 +1,18 @@
 {
-  "app": {
-    "port": 3200,
-    "host": "http://njcdd-web:3200/api/v1"
-  },
-  "api": {
-    "host": "http://njcdd-api:3210/api/v1"
-  },
   "ldap": {
-    "host": "ldap://njcdd-ldap:1389",
     "baseDn": "dc=account,dc=njcdd,dc=org",
-    "userDn": "ou=users,dc=account,dc=njcdd,dc=org",
     "groups": {
       "managers": "cn=managers,ou=users,dc=account,dc=njcdd,dc=org",
-      "operators": "cn=operators,ou=users,dc=account,dc=njcdd,dc=org",
-      "members": "cn=members,ou=users,dc=account,dc=njcdd,dc=org"
-    }
+      "members": "cn=members,ou=users,dc=account,dc=njcdd,dc=org",
+      "operators": "cn=operators,ou=users,dc=account,dc=njcdd,dc=org"
+    },
+    "host": "njcdd-ldap",
+    "userDn": "ou=users,dc=account,dc=njcdd,dc=org"
+  },
+  "minio": {
+    "host": "njcdd-minio"
   },
   "redis": {
-    "host": "redis://:passworD123@njcdd-redis:6379/0"
-  },
-  "mongodb": {
-    "host": "mongodb://admin:passworD123@njcdd-mongodb:27017/admin"
+    "host": "njcdd-redis"
   }
 }

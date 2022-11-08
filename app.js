@@ -2,20 +2,21 @@
  * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
  */
 
-const config = require("config");
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const session = require('express-session');
+const redisController = require('./controller/redis');
 let RedisStore = require("connect-redis")(session);
 
 const {createClient} = require("redis");
-let redisClient = createClient({
-                                 legacyMode: true,
-                                 url: config.get("redis.host")
-                               });
+let redisClient = createClient(
+  {
+    legacyMode: true,
+    url: redisController.url
+  });
 redisClient.connect().catch(console.error);
 
 const app = express();

@@ -1,18 +1,2 @@
 {
-  "app": {
-    "port": 3200,
-    "host": "https://account.njcdd.org:3200/api/v1"
-  },
-  "api": {
-    "host": "http://njcdd-api:3210/api/v1"
-  },
-  "ldap": {
-    "host": "ldap://njcdd-ldap:1389"
-  },
-  "redis": {
-    "host": "redis://:passworD123@njcdd-redis:6379/0"
-  },
-  "mongodb": {
-    "host": "mongodb://admin:passworD123@njcdd-mongodb:27017/admin"
-  }
 }

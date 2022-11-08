@@ -1,37 +1,20 @@
-#!/usr/bin/env node
-
-/**
- * Module dependencies.
+/*
+ * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
  */
 
-let app = require('../app');
-let debug = require('debug')('njcdd.web:server');
-let http = require('http');
+const app = require('../app'),
+  debug = require('debug')('njcdd.api:server'),
+  http = require('http'),
+  config = require('config');
 
-/**
- * Get port from environment and store in Express.
- */
-
-let port = normalizePort(process.env.PORT || '3200');
+let port = normalizePort(process.env.NJCDD_WEB_PORT || config.app.port);
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
-
 let server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
 
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
 
 function normalizePort(val) {
   let port = parseInt(val, 10);
@@ -48,10 +31,6 @@ function normalizePort(val) {
 
   return false;
 }
-
-/**
- * Event listener for HTTP server "error" event.
- */
 
 function onError(error) {
   if(error.syscall !== 'listen') {
@@ -76,10 +55,6 @@ function onError(error) {
     throw error;
   }
 }
-
-/**
- * Event listener for HTTP server "listening" event.
- */
 
 function onListening() {
   let addr = server.address();

@@ -3,5 +3,8 @@
     <module2copyright>
       <element module="Project Files" copyright="anthony" />
     </module2copyright>
+    <LanguageOptions name="Shell Script">
+      <option name="fileTypeOverride" value="1" />
+    </LanguageOptions>
   </settings>
 </component>

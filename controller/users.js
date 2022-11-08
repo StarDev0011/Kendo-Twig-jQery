@@ -8,13 +8,12 @@ const nodemailer = require('nodemailer');
 
 async function dbConnect() {
   return new Promise((resolve, reject) => {
-
     const ldapClient = ldap.createClient(
       {
         url: config.ldap.host
       });
 
-    ldapClient.bind(process.env.LDAP_USERNAME, process.env.LDAP_PASSWORD, function(err) {
+    ldapClient.bind(config.get("app.username"), config.get("app.password"), function(err) {
       if(err) return reject(err);
       return resolve(ldapClient);
     });
@@ -44,12 +43,13 @@ module.exports.add = async({cn, sn, email, userPassword, givenName, displayName}
           if(err) return reject(err);
 
           // add user to group
-          var grpInfo = new ldap.Change({
-                                          operation: 'add',
-                                          modification: {
-                                            uniqueMember: cn_user
-                                          }
-                                        });
+          var grpInfo = new ldap.Change(
+            {
+              operation: 'add',
+              modification: {
+                uniqueMember: cn_user
+              }
+            });
           let groupname = process.env.MEMBER_GROUP_DN_PATH;
           conn.modify(groupname, grpInfo, function(err) {
             if(err) return reject(err);

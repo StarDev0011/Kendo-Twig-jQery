@@ -6,13 +6,14 @@ const config = require("config");
 const {authenticate} = require('ldap-authentication');
 const ldap = require('ldapjs');
 
-const ldapUserDn = config.get("ldap.userDn");
-const server = ldap.createServer();
+const ldapUserDn = config.get("ldap.userDn"),
+  server = ldap.createServer(),
+  url = `ldap://${config.get("ldap.host")}.${config.get("app.domain")}:${config.get("ldap.port")}`;
 
 async function authenticateAccount(username, password) {
   let options = {
     ldapOpts: {
-      url: config.get("ldap.host")
+      url: url
     },
     userDn: `cn=${username},${ldapUserDn}`,
     userPassword: password,
@@ -67,3 +68,4 @@ function search() {
 }
 
 module.exports.authenticateAccount = authenticateAccount;
+module.exports.url = url;
