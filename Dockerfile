@@ -1,9 +1,9 @@
 FROM node:18.8
 
-WORKDIR /usr/src/app
+WORKDIR /opt/njcdd/web
 ENV ACES_DOMAIN=aces.local \
-    LDAP_ADMIN_PASSWORD=admin \
-    LDAP_ADMIN_USERNAME=passworD123 \
+    NJCDD_ADMIN_PASSWORD=passworD123 \
+    NJCDD_ADMIN_USERNAME=admin \
     NJCDD_API_PORT=3210 \
     NJCDD_DOMAIN=account.njcdd.org \
     NJCDD_LDAP_PORT=1389 \
