@@ -45,11 +45,11 @@ function onError(error) {
   // handle specific listen errors with friendly messages
   switch(error.code) {
   case 'EACCES':
-    logger.error(bind + ' requires elevated privileges');
+    logger.error({message: bind + ' requires elevated privileges'});
     process.exit(1);
     break;
   case 'EADDRINUSE':
-    logger.error(bind + ' is already in use');
+    logger.error({message: bind + ' is already in use'});
     process.exit(1);
     break;
   default:
@@ -62,7 +62,7 @@ function onListening() {
   let bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  let msg = `Listening on ${addr}:${bind}`;
+  let msg = `Listening on ${addr.address}:${bind}`;
   debug(msg);
   logger.info({message: msg});
 }

@@ -33,7 +33,7 @@ async function authenticateAccount(username, password) {
 
   try {
     let user = await authenticate(options);
-    logger.info(user);
+    logger.info({user: user});
 
     const result = {
       dn: user.dn,
@@ -46,10 +46,10 @@ async function authenticateAccount(username, password) {
       isOps: user.groups.filter(group => group.dn.startsWith("cn=operators")).length > 0
     };
 
-    logger.info(result);
+    logger.info({user: user, result: result});
     return result;
   } catch(err) {
-    logger.error(`Login failed for '${err}'. Host is Host is '${url}'`);
+    logger.error({message: `Login failed for '${err}'. Host is Host is '${url}'`});
     throw new Error("Either the account name or password was not correct.");
   }
 }
