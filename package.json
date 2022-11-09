@@ -1,7 +1,7 @@
 {
   "name": "account_njcdd",
   "description": "NJCDD Account Database",
-  "version": "1.0.49",
+  "version": "1.0.50",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
