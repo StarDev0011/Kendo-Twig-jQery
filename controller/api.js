@@ -11,7 +11,7 @@ const apiURL = config.get("api.scheme") + '://' +
   config.get("api.port") +
   config.get("api.path");
 
-logger.debug({message: `NJCDD API URL: ${apiURL}`});
+logger.debug(`NJCDD API URL: ${apiURL}`);
 
 async function summary() {
   try {

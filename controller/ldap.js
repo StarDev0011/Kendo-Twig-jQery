@@ -13,10 +13,10 @@ const {authenticate} = require('ldap-authentication'),
     config.get("ldap.domain") + ':' +
     config.get("ldap.port");
 
-logger.debug({message: `LDAP URL: ${url}`});
+logger.debug(`LDAP URL: ${url}`);
 
 async function authenticateAccount(username, password) {
-  logger.debug({message: `Attempting to authenticate '${username}'`});
+  logger.debug(`Attempting to authenticate '${username}'`);
 
   let options = {
     ldapOpts: {
@@ -35,7 +35,6 @@ async function authenticateAccount(username, password) {
 
   try {
     let user = await authenticate(options);
-    logger.info({user: user});
 
     const result = {
       dn: user.dn,
@@ -48,10 +47,10 @@ async function authenticateAccount(username, password) {
       isOps: user.groups.filter(group => group.dn.startsWith("cn=operators")).length > 0
     };
 
-    logger.info({user: user, result: result});
+    logger.debug(`Authenticated '${username}' to ${JSON.stringify(result)}`);
     return result;
   } catch(err) {
-    logger.error({message: `Login failed for '${err}'. Host is Host is '${url}'`});
+    logger.error(`Authentication failed for '${err}'. Host is Host is '${url}'`);
     throw new Error("Either the account name or password was not correct.");
   }
 }

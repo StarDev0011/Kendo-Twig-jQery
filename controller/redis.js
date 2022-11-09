@@ -11,6 +11,6 @@ const config = require("config"),
     config.get("redis.port") + '/' +
     config.get("redis.db");
 
-logger.debug({message: `Redis URL: ${url}`});
+logger.debug(`Redis URL: ${url}`);
 
 module.exports.url = url;

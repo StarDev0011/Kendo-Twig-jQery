@@ -19,7 +19,7 @@ function error(err, req, res, next) {
     error: req.app.get('env') !== 'production' ? err : {}
   };
 
-  logger.error({message: JSON.stringify(err)});
+  logger.error(JSON.stringify(err));
   // render the error page
   res.status(err.status || 500);
   res.render('error');
@@ -31,7 +31,10 @@ let redisClient = createClient(
     legacyMode: true,
     url: redisController.url
   });
-redisClient.connect().catch(logger.error);
+redisClient.connect()
+           .catch((error) => {
+             logger.error(JSON.stringify(error));
+           });
 
 const app = express();
 
@@ -63,7 +66,7 @@ app.use(function(req, res, next) {
 
 // Log every request
 app.use(function(req, res, next) {
-  logger.debug({url: req.url});
+  logger.debug(req.url);
   next();
 });
 

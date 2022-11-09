@@ -17,6 +17,6 @@ const logger = winston.createLogger(
     ]
   });
 
-logger.debug({message: `Logging at level '${logger.level}'`});
+logger.debug(`Logging at level '${logger.level}'`);
 
 module.exports = logger;
