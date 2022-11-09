@@ -8,7 +8,7 @@ const app = require('../app'),
   config = require('config'),
   logger = require('../controller/logger');
 
-let port = normalizePort(process.env.NJCDD_WEB_PORT || config.app.port);
+let port = normalizePort(process.env.NJCDD_WEB_PORT || config.web.port);
 app.set('port', port);
 
 let server = http.createServer(app);

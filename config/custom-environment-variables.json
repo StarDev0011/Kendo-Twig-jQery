@@ -19,5 +19,10 @@
   "redis": {
     "password": "NJCDD_ADMIN_PASSWORD",
     "port": "NJCDD_REDIS_PORT"
+  },
+  "web": {
+    "password": "NJCDD_ADMIN_PASSWORD",
+    "port": "NJCDD_WEB_PORT",
+    "username": "NJCDD_ADMIN_USERNAME"
   }
 }

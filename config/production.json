@@ -16,5 +16,8 @@
   },
   "redis": {
     "domain": "account.njcdd.org"
+  },
+  "web": {
+    "domain": "account.njcdd.org"
   }
 }

@@ -33,5 +33,16 @@
     "db": 0,
     "host": "njcdd-redis",
     "scheme": "redis"
+  },
+  "web": {
+    "name": "njcdd.web",
+    "level": "info",
+    "log": {
+      "filename": {
+        "error": "/var/log/njcdd.web/errorlog.json",
+        "combined": "/var/log/njcdd.web/combinedlog.json"
+      },
+      "level": "info"
+    }
   }
 }

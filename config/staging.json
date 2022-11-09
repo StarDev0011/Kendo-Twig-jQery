@@ -1,13 +1,19 @@
 {
   "api": {
-    "domain": "staging.njcdd.org"
+    "domain": "staging.njcdd.org",
+    "log": {
+      "filename": {
+        "error": "~/log/njcdd.web/errorlog.json",
+        "combined": "~/log/njcdd.web/combinedlog.json"
+      }
+    }
   },
   "app": {
     "domain": "staging.njcdd.org",
     "log": {
       "filename": {
-        "error": "~/logs/njcdd.web/errorlog.json",
-        "combined": "~/logs/njcdd.web/combinedlog.json"
+        "error": "~/log/njcdd.web/errorlog.json",
+        "combined": "~/log/njcdd.web/combinedlog.json"
       }
     }
   },
@@ -22,5 +28,14 @@
   },
   "redis": {
     "domain": "staging.njcdd.org"
+  },
+  "web": {
+    "domain": "staging.njcdd.org",
+    "log": {
+      "filename": {
+        "error": "~/log/njcdd.web/errorlog.json",
+        "combined": "~/log/njcdd.web/combinedlog.json"
+      }
+    }
   }
 }

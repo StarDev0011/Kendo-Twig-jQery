@@ -7,12 +7,12 @@ const config = require('config'),
 
 const logger = winston.createLogger(
   {
-    level: config.get('app.log.level'),
+    level: config.get('web.log.level'),
     format: winston.format.json(),
-    defaultMeta: {service: config.get('app.name')},
+    defaultMeta: {service: config.get('web.name')},
     transports: [
-      new winston.transports.File({filename: config.get('app.log.filename.error'), level: 'error'}),
-      new winston.transports.File({filename: config.get('app.log.filename.combined'), level: 'debug'}),
+      new winston.transports.File({filename: config.get('web.log.filename.error'), level: 'error'}),
+      new winston.transports.File({filename: config.get('web.log.filename.combined'), level: 'debug'}),
       new winston.transports.Console({format: winston.format.simple(), level: 'debug'})
     ]
   });
