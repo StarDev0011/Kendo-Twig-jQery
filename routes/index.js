@@ -6,18 +6,19 @@ const router = require('express').Router(),
   apiController = require('../controller/api'),
   ldapController = require('../controller/ldap'),
   product = require('../package'),
-  pageVariables = {
-    product: product.name,
-    version: product.version,
-    description: product.description,
-    isManager: false,
-    isOps: false,
-    displayName: null,
-    profileID: null,
-    message: null,
-    content: {},
-    error: {}
-  };
+  logger = require('../controller/logger');
+pageVariables = {
+  product: product.name,
+  version: product.version,
+  description: product.description,
+  isManager: false,
+  isOps: false,
+  displayName: null,
+  profileID: null,
+  message: null,
+  content: {},
+  error: {}
+};
 
 function setVariables(x) {
   const account = x.account === undefined ? null : x.account;
@@ -90,6 +91,7 @@ router.get('/home', isAuthenticated, (req, res) => {
         content: summary
       };
 
+      logger.debug({route: '/home', method: 'get', variables: JSON.stringify(variables)});
       res.render('home', setVariables(variables));
     })
     .catch((error) => {
