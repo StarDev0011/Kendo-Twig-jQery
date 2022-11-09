@@ -36,6 +36,7 @@
         "error": "~/log/njcdd.web/errorlog.json",
         "combined": "~/log/njcdd.web/combinedlog.json"
       }
-    }
+    },
+    "level": "DEBUG"
   }
 }

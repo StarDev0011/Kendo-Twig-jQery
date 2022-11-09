@@ -19,7 +19,7 @@ function error(err, req, res, next) {
     error: req.app.get('env') !== 'production' ? err : {}
   };
 
-  logger.error({message: err});
+  logger.error({message: JSON.stringify(err)});
   // render the error page
   res.status(err.status || 500);
   res.render('error');

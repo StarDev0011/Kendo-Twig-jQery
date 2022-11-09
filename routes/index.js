@@ -85,13 +85,13 @@ router.get('/home', isAuthenticated, (req, res) => {
   const promise = apiController.summary();
 
   promise
-    .then(summary => {
+    .then((summary) => {
       let variables = {
         account: account,
-        content: summary
+        content: summary.data
       };
 
-      logger.debug({route: '/home', method: 'get', variables: JSON.stringify(variables)});
+      logger.debug({route: '/home', method: 'get', summary: JSON.stringify(summary.data)});
       res.render('home', setVariables(variables));
     })
     .catch((error) => {
@@ -106,9 +106,11 @@ router.post('/home', async(req, res) => {
   promise
     .then(account => {
       req.session.account = account;
+      logger.debug({message: `Authenticated '${email}', now routing to '/home'`});
       res.redirect('/home');
     })
     .catch((error) => {
+      logger.error({error: error});
       res.render('index', setVariables({message: error}));
     });
 });

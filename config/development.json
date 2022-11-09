@@ -8,15 +8,6 @@
       }
     }
   },
-  "app": {
-    "domain": "staging.njcdd.org",
-    "log": {
-      "filename": {
-        "error": "~/log/njcdd.web/errorlog.json",
-        "combined": "~/log/njcdd.web/combinedlog.json"
-      }
-    }
-  },
   "ldap": {
     "domain": "staging.njcdd.org"
   },
@@ -35,7 +26,8 @@
       "filename": {
         "error": "~/log/njcdd.web/errorlog.json",
         "combined": "~/log/njcdd.web/combinedlog.json"
-      }
+      },
+      "level": "debug"
     }
   }
 }

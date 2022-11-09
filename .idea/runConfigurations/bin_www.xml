@@ -4,7 +4,7 @@
       <browser url="http://localhost:3000/" />
     </EXTENSION>
     <envs>
-      <env name="DEBUG" value="njcdd.web:*" />
+      <env name="DEBUG" value="njcdd.web.sys:*" />
       <env name="NJCDD_ADMIN_PASSWORD" value="passworD123" />
       <env name="NJCDD_ADMIN_USERNAME" value="admin" />
       <env name="NJCDD_API_PORT" value="3210" />
@@ -14,8 +14,8 @@
       <env name="NJCDD_MINIO_UI_PORT" value="9001" />
       <env name="NJCDD_MONGODB_PORT" value="27017" />
       <env name="NJCDD_REDIS_PORT" value="6379" />
-      <env name="NODE_ENV" value="development" />
       <env name="NJCDD_WEB_PORT" value="3200" />
+      <env name="NODE_ENV" value="development" />
     </envs>
     <method v="2" />
   </configuration>

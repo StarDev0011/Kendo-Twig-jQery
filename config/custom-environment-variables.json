@@ -2,11 +2,6 @@
   "api": {
     "port": "NJCDD_API_PORT"
   },
-  "app": {
-    "password": "NJCDD_ADMIN_PASSWORD",
-    "port": "NJCDD_WEB_PORT",
-    "username": "NJCDD_ADMIN_USERNAME"
-  },
   "ldap": {
     "port": "NJCDD_LDAP_PORT"
   },

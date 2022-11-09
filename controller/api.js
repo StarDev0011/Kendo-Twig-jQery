@@ -16,7 +16,7 @@ logger.debug({message: `NJCDD API URL: ${apiURL}`});
 async function summary() {
   try {
     const result = axios.get(`${apiURL}/summary`);
-    logger.info({summary: result});
+    logger.info({summary: JSON.stringify(result)});
     return result;
   } catch(error) {
     logger.error(error);

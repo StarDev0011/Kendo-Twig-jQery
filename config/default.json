@@ -4,17 +4,6 @@
     "path": "/api/v1",
     "scheme": "http"
   },
-  "app": {
-    "name": "njcdd.web",
-    "level": "info",
-    "log": {
-      "filename": {
-        "error": "/var/log/njcdd.web/errorlog.json",
-        "combined": "/var/log/njcdd.web/combinedlog.json"
-      },
-      "level": "info"
-    }
-  },
   "ldap": {
     "baseDn": "dc=account,dc=njcdd,dc=org",
     "groups": {
@@ -36,13 +25,12 @@
   },
   "web": {
     "name": "njcdd.web",
-    "level": "info",
     "log": {
       "filename": {
         "error": "/var/log/njcdd.web/errorlog.json",
         "combined": "/var/log/njcdd.web/combinedlog.json"
       },
-      "level": "info"
+      "level": "INFO"
     }
   }
 }
