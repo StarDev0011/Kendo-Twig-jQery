@@ -3,11 +3,10 @@
  */
 
 const app = require('../app'),
-  debug = require('debug')('njcdd.api:server'),
+  debug = require('debug')('njcdd.web:server'),
   http = require('http'),
   config = require('config'),
   logger = require('../controller/logger');
-
 
 let port = normalizePort(process.env.NJCDD_WEB_PORT || config.app.port);
 app.set('port', port);
@@ -63,7 +62,7 @@ function onListening() {
   let bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  let msg = 'Listening on ' + bind;
+  let msg = `Listening on ${addr}:${bind}`;
   debug(msg);
   logger.info({message: msg});
 }

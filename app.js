@@ -8,7 +8,22 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const redisController = require('./controller/redis');
+const logger = require('./controller/logger');
 let RedisStore = require("connect-redis")(session);
+
+// noinspection JSUnusedLocalSymbols
+function error(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals = {
+    message: err.message,
+    error: req.app.get('env') !== 'production' ? err : {}
+  };
+
+  logger.error({message: err});
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+}
 
 const {createClient} = require("redis");
 let redisClient = createClient(
@@ -16,7 +31,7 @@ let redisClient = createClient(
     legacyMode: true,
     url: redisController.url
   });
-redisClient.connect().catch(console.error);
+redisClient.connect().catch(logger.error);
 
 const app = express();
 
@@ -45,6 +60,12 @@ app.use(function(req, res, next) {
   next();
 });
 
+// Log every request
+app.use(function(req, res, next) {
+  logger.debug({url: req.url});
+  next();
+});
+
 app.use(['/', '/profile'], require('./routes/index'));
 
 // catch 404 and forward to error handler
@@ -53,16 +74,6 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals = {
-    message: err.message,
-    error: req.app.get('env') !== 'production' ? err : {}
-  };
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+app.use(error);
 
 module.exports = app;

@@ -11,6 +11,8 @@ const {authenticate} = require('ldap-authentication'),
   url = `${config.get("ldap.scheme")}://${config.get("ldap.host")}.${config.get("ldap.domain")}:${config.get("ldap.port")}`;
 
 async function authenticateAccount(username, password) {
+  logger.debug({message: `Attempting to authenticate '${username}`});
+
   let options = {
     ldapOpts: {
       url: url
