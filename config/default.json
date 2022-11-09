@@ -30,7 +30,7 @@
         "error": "/var/log/njcdd.web/errorlog.json",
         "combined": "/var/log/njcdd.web/combinedlog.json"
       },
-      "level": "INFO"
+      "level": "info"
     }
   }
 }

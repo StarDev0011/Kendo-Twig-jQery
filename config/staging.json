@@ -37,6 +37,6 @@
         "combined": "~/log/njcdd.web/combinedlog.json"
       }
     },
-    "level": "DEBUG"
+    "level": "debug"
   }
 }
