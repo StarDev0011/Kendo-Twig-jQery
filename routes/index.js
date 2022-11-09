@@ -51,7 +51,11 @@ function setVariables(x) {
 
 router.get('/',
            (req, res) => {
-             res.render('index', setVariables({}));
+             if(req.session.account) {
+               res.redirect('/home');
+             } else {
+               res.render('index', setVariables({}));
+             }
            });
 
 router.get('/forgot',
