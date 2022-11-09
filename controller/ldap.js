@@ -8,7 +8,10 @@ const {authenticate} = require('ldap-authentication'),
   ldapUserDn = config.get("ldap.userDn"),
   logger = require('./logger'),
   server = ldap.createServer(),
-  url = `${config.get("ldap.scheme")}://${config.get("ldap.host")}.${config.get("ldap.domain")}:${config.get("ldap.port")}`;
+  url = config.get("ldap.scheme") + '://' +
+    config.get("ldap.host") + '.' +
+    config.get("ldap.domain") + ':' +
+    config.get("ldap.port");
 
 async function authenticateAccount(username, password) {
   logger.debug({message: `Attempting to authenticate '${username}`});

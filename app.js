@@ -46,12 +46,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(
-  session({
-            store: new RedisStore({client: redisClient}),
-            saveUninitialized: false,
-            secret: "8122af5c-c7e6-4f05-bf98-1252b7ca2a2e",
-            resave: false
-          })
+  session(
+    {
+      store: new RedisStore({client: redisClient}),
+      saveUninitialized: false,
+      secret: "8122af5c-c7e6-4f05-bf98-1252b7ca2a2e",
+      resave: false
+    })
 );
 
 // Prevent page cache on every route

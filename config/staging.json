@@ -3,7 +3,13 @@
     "domain": "staging.njcdd.org"
   },
   "app": {
-    "domain": "staging.njcdd.org"
+    "domain": "staging.njcdd.org",
+    "log": {
+      "filename": {
+        "error": "~/logs/njcdd.web/errorlog.json",
+        "combined": "~/logs/njcdd.web/combinedlog.json"
+      }
+    }
   },
   "ldap": {
     "domain": "staging.njcdd.org"

@@ -3,7 +3,7 @@
     "domain": "staging.njcdd.org"
   },
   "app": {
-    "domain": "staging.njcdd.org",
+    "domain": "aces.local",
     "log": {
       "filename": {
         "error": "~/logs/njcdd.web/errorlog.json",
