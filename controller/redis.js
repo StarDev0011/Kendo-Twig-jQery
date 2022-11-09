@@ -3,6 +3,11 @@
  */
 
 const config = require("config"),
-  url = `${config.get("redis.scheme")}://:${config.get("redis.password")}@${config.get("redis.host")}.${config.get("redis.domain")}:${config.get("redis.port")}/${config.get("redis.db")}`;
+  url = config.get("redis.scheme") + '://:' +
+    config.get("redis.password") + '@' +
+    config.get("redis.host") + '.' +
+    config.get("redis.domain") + ':' +
+    config.get("redis.port") + '/' +
+    config.get("redis.db");
 
 module.exports.url = url;

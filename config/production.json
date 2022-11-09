@@ -11,6 +11,9 @@
   "minio": {
     "domain": "account.njcdd.org"
   },
+  "mongodb": {
+    "domain": "account.njcdd.org"
+  },
   "redis": {
     "domain": "account.njcdd.org"
   }

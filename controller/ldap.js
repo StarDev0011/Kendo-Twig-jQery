@@ -2,11 +2,11 @@
  * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
  */
 
-const config = require("config");
-const {authenticate} = require('ldap-authentication');
-const ldap = require('ldapjs');
-
-const ldapUserDn = config.get("ldap.userDn"),
+const {authenticate} = require('ldap-authentication'),
+  config = require("config"),
+  ldap = require('ldapjs'),
+  ldapUserDn = config.get("ldap.userDn"),
+  logger = require('./logger'),
   server = ldap.createServer(),
   url = `${config.get("ldap.scheme")}://${config.get("ldap.host")}.${config.get("ldap.domain")}:${config.get("ldap.port")}`;
 
@@ -28,7 +28,7 @@ async function authenticateAccount(username, password) {
 
   try {
     let user = await authenticate(options);
-    console.log(user);
+    logger.info(user);
 
     const result = {
       dn: user.dn,
@@ -41,16 +41,16 @@ async function authenticateAccount(username, password) {
       isOps: user.groups.filter(group => group.dn.startsWith("cn=operators")).length > 0
     };
 
-    console.log(result);
+    logger.info(result);
     return result;
   } catch(err) {
-    console.log(`Login failed for '${err}'. Host is Host is '${url}'`);
+    logger.error(`Login failed for '${err}'. Host is Host is '${url}'`);
     throw new Error("Either the account name or password was not correct.");
   }
 }
 
 function search() {
-  server.search(ldapUserDn, function(req, res, next) {
+  server.search(ldapUserDn, function(req, res) {
     let obj = {
       dn: req.dn.toString(),
       attributes: {
@@ -68,4 +68,5 @@ function search() {
 }
 
 module.exports.authenticateAccount = authenticateAccount;
+module.exports.search = search;
 module.exports.url = url;

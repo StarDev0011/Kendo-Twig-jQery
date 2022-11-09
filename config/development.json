@@ -1,17 +1,26 @@
 {
   "api": {
-    "domain": "njcdd.staging"
+    "domain": "staging.njcdd.org"
   },
   "app": {
-    "domain": "njcdd.staging"
+    "domain": "staging.njcdd.org",
+    "log": {
+      "filename": {
+        "error": "~/logs/njcdd.web/errorlog.json",
+        "combined": "~/logs/njcdd.web/combinedlog.json"
+      }
+    }
   },
   "ldap": {
-    "domain": "njcdd.staging"
+    "domain": "staging.njcdd.org"
   },
   "minio": {
-    "domain": "njcdd.staging"
+    "domain": "staging.njcdd.org"
+  },
+  "mongodb": {
+    "domain": "staging.njcdd.org"
   },
   "redis": {
-    "domain": "njcdd.staging"
+    "domain": "staging.njcdd.org"
   }
 }
