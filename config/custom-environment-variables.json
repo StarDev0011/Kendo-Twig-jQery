@@ -5,6 +5,14 @@
   "ldap": {
     "port": "NJCDD_LDAP_PORT"
   },
+  "logger": {
+    "port": {
+      "api": "NJCDD_LOGGER_API_PORT",
+      "gelf": "NJCDD_LOGGER_GELF_PORT",
+      "syslog": "NJCDD_LOGGER_SYSLOG_PORT",
+      "ui": "NJCDD_LOGGER_UI_PORT"
+    }
+  },
   "minio": {
     "port": {
       "api": "NJCDD_MINIO_API_PORT",
