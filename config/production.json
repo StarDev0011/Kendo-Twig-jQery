@@ -6,18 +6,18 @@
     "domain": "account.njcdd.org"
   },
   "ldap": {
-    "domain": "account.njcdd.org"
+    "domain": "njcdd-prod.alligator-lime.ts.net"
   },
   "minio": {
-    "domain": "account.njcdd.org"
+    "domain": "njcdd-prod.alligator-lime.ts.net"
   },
   "mongodb": {
-    "domain": "account.njcdd.org"
+    "domain": "njcdd-prod.alligator-lime.ts.net"
   },
   "redis": {
-    "domain": "account.njcdd.org"
+    "domain": "njcdd-prod.alligator-lime.ts.net"
   },
   "web": {
-    "domain": "account.njcdd.org"
+    "domain": "njcdd-prod.alligator-lime.ts.net"
   }
 }
