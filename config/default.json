@@ -11,20 +11,20 @@
       "members": "cn=members,ou=users,dc=account,dc=njcdd,dc=org",
       "operators": "cn=operators,ou=users,dc=account,dc=njcdd,dc=org"
     },
-    "host": "njcdd-ldap",
+    "host": "ldap",
     "scheme": "ldap",
     "userDn": "ou=users,dc=account,dc=njcdd,dc=org"
   },
   "minio": {
-    "host": "njcdd-minio"
+    "host": "minio"
   },
   "redis": {
     "db": 0,
-    "host": "njcdd-redis",
+    "host": "redis",
     "scheme": "redis"
   },
   "web": {
-    "name": "njcdd.web",
+    "name": "njcdd-web",
     "log": {
       "filename": {
         "error": "/var/log/njcdd.web/errorlog.json",
