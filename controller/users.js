@@ -1,5 +1,5 @@
 /*
- * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ * Copyright © 2023 Anthony Software Group, LLC • All Rights Reserved
  */
 
 const config = require("config"),
@@ -10,10 +10,12 @@ async function dbConnect() {
   return new Promise((resolve, reject) => {
     const ldapClient = ldap.createClient(
       {
-        url: config.ldap.host
+        url: config.get("ldap.host")
       });
 
-    ldapClient.bind(config.get("app.username"), config.get("app.password"), function(err) {
+    const username = config.get("app.username");
+    const password = config.get("app.password");
+    ldapClient.bind(username, password, function(err) {
       if(err) return reject(err);
       return resolve(ldapClient);
     });
@@ -25,7 +27,7 @@ module.exports.add = async({cn, sn, email, userPassword, givenName, displayName}
     const conn = await dbConnect();
     if(conn) {
       return new Promise((resolve, reject) => {
-        var entry = {
+        let entry = {
           sn: sn ?? cn,
           cn: cn,
           mail: email,
@@ -43,7 +45,7 @@ module.exports.add = async({cn, sn, email, userPassword, givenName, displayName}
           if(err) return reject(err);
 
           // add user to group
-          var grpInfo = new ldap.Change(
+          let grpInfo = new ldap.Change(
             {
               operation: 'add',
               modification: {
@@ -68,13 +70,13 @@ module.exports.add = async({cn, sn, email, userPassword, givenName, displayName}
 
 module.exports.addUserToGroup = async({user_cn, group_type}) => {
   try {
-    const conn = await connection.dbConnect();
+    const conn = await dbConnect();
 
     if(conn) {
       let user_dn = `cn=${user_cn},` + process.env.USER_DN_PATH;
       return new Promise((resolve, reject) => {
         // add user to group
-        var grpInfo = new ldap.Change({
+        let grpInfo = new ldap.Change({
                                         operation: 'add',
                                         modification: {
                                           uniqueMember: user_dn
@@ -132,7 +134,7 @@ const searchUserByEmail = module.exports.searchUserByEmail = async({email, given
         let mailCond = (email) ? '(mail=' + email + ')' : '';
         let gnCond = (givenName) ? '(givenName=' + givenName + ')' : '';
         let dnCond = (displayName) ? '(displayName=' + displayName + ')' : '';
-        var opts = {
+        let opts = {
           // filter: '(mail='+email+')',  //simple search
           //  filter: '(objectClass=*)',  //simple search
           //  filter: '(&(uid=2)(sn=John))',// and search

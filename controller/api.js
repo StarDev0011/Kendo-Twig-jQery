@@ -1,15 +1,11 @@
 /*
- * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ * Copyright © 2023 Anthony Software Group, LLC • All Rights Reserved
  */
 
 const axios = require('axios'),
   config = require('config'),
   logger = require('../controller/logger');
-const apiURL = config.get("api.scheme") + '://' +
-  config.get("api.host") + '.' +
-  config.get("api.domain") + ':' +
-  config.get("api.port") +
-  config.get("api.path");
+const apiURL = `http://njcdd-api:${config.get("api.port")}/${config.get("api.path")}`;
 
 logger.debug(`NJCDD API URL: ${apiURL}`);
 
