@@ -1,4 +1,8 @@
 {
+  "admin": {
+    "password": "NJCDD_ADMIN_PASSWORD",
+    "username": "NJCDD_ADMIN_USERNAME"
+  },
   "api": {
     "port": "NJCDD_API_PORT"
   },
