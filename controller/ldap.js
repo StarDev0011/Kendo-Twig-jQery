@@ -1,5 +1,5 @@
 /*
- * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ * Copyright © 2023 Anthony Software Group, LLC • All Rights Reserved
  */
 
 const {authenticate} = require('ldap-authentication'),
@@ -7,11 +7,8 @@ const {authenticate} = require('ldap-authentication'),
   ldap = require('ldapjs'),
   ldapUserDn = config.get("ldap.userDn"),
   logger = require('./logger'),
-  server = ldap.createServer(),
-  url = config.get("ldap.scheme") + '://' +
-    config.get("ldap.host") + '.' +
-    config.get("ldap.domain") + ':' +
-    config.get("ldap.port");
+  server = ldap.createServer();
+const url = `ldap://ldap:1389`;
 
 logger.debug(`LDAP URL: ${url}`);
 

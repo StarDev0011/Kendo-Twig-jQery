@@ -1,15 +1,10 @@
 /*
- * Copyright © 2022 Anthony Software Group, LLC • All Rights Reserved
+ * Copyright © 2023 Anthony Software Group, LLC • All Rights Reserved
  */
 
 const logger = require('./logger');
-const config = require("config"),
-  url = config.get("redis.scheme") + '://:' +
-    config.get("redis.password") + '@' +
-    config.get("redis.host") + '.' +
-    config.get("redis.domain") + ':' +
-    config.get("redis.port") + '/' +
-    config.get("redis.db");
+const config = require("config");
+const url = `redis://:${config.get("admin.password")}@redis/1`;
 
 logger.debug(`Redis URL: ${url}`);
 
