@@ -1,8 +1,13 @@
 {
+  "admin": {
+    "password": "NJCDD_ADMIN_PASSWORD",
+    "username": "NJCDD_ADMIN_USERNAME"
+  },
   "api": {
     "host": "njcdd-api",
     "path": "/api/v1",
-    "scheme": "http"
+    "scheme": "http",
+    "port": "NJCDD_API_PORT"
   },
   "ldap": {
     "baseDn": "dc=account,dc=njcdd,dc=org",

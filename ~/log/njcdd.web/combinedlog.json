@@ -1,0 +1,18 @@
+{"level":"debug","message":"Logging at level 'debug'","service":"njcdd-web"}
+{"level":"debug","message":"Redis URL: redis://:NJCDD_ADMIN_PASSWORD@redis/1","service":"njcdd-web"}
+{"level":"debug","message":"NJCDD API URL: http://njcdd-api:NJCDD_API_PORT//api/v1","service":"njcdd-web"}
+{"level":"debug","message":"LDAP URL: ldap://ldap:1389","service":"njcdd-web"}
+{"level":"info","message":"Listening on :::port 57865","service":"njcdd-web"}
+{"level":"error","message":"{\"errno\":-3008,\"code\":\"ENOTFOUND\",\"syscall\":\"getaddrinfo\",\"hostname\":\"redis\"}","service":"njcdd-web"}
+{"level":"debug","message":"Logging at level 'debug'","service":"njcdd-web"}
+{"level":"debug","message":"Redis URL: redis://:NJCDD_ADMIN_PASSWORD@redis/1","service":"njcdd-web"}
+{"level":"debug","message":"NJCDD API URL: http://njcdd-api:12100//api/v1","service":"njcdd-web"}
+{"level":"debug","message":"LDAP URL: ldap://ldap:1389","service":"njcdd-web"}
+{"level":"info","message":"Listening on :::port 57966","service":"njcdd-web"}
+{"level":"error","message":"{\"errno\":-3008,\"code\":\"ENOTFOUND\",\"syscall\":\"getaddrinfo\",\"hostname\":\"redis\"}","service":"njcdd-web"}
+{"level":"debug","message":"Logging at level 'debug'","service":"njcdd-web"}
+{"level":"debug","message":"Redis URL: redis://:NJCDD_ADMIN_PASSWORD@redis/1","service":"njcdd-web"}
+{"level":"debug","message":"NJCDD API URL: http://njcdd-api:NJCDD_API_PORT//api/v1","service":"njcdd-web"}
+{"level":"debug","message":"LDAP URL: ldap://ldap:1389","service":"njcdd-web"}
+{"level":"info","message":"Listening on :::port 58016","service":"njcdd-web"}
+{"level":"error","message":"{\"errno\":-3008,\"code\":\"ENOTFOUND\",\"syscall\":\"getaddrinfo\",\"hostname\":\"redis\"}","service":"njcdd-web"}

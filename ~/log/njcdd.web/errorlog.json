@@ -1,0 +1,3 @@
+{"level":"error","message":"{\"errno\":-3008,\"code\":\"ENOTFOUND\",\"syscall\":\"getaddrinfo\",\"hostname\":\"redis\"}","service":"njcdd-web"}
+{"level":"error","message":"{\"errno\":-3008,\"code\":\"ENOTFOUND\",\"syscall\":\"getaddrinfo\",\"hostname\":\"redis\"}","service":"njcdd-web"}
+{"level":"error","message":"{\"errno\":-3008,\"code\":\"ENOTFOUND\",\"syscall\":\"getaddrinfo\",\"hostname\":\"redis\"}","service":"njcdd-web"}
